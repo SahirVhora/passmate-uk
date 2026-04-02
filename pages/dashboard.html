@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your PassMate UK progress dashboard — overall stats, category breakdown, bookmarks, and session history.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Progress Dashboard — PassMate UK</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <style>
+    .session-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      font-size: 0.875rem;
+      gap: 12px;
+    }
+    .session-row .session-date { color: var(--text-muted); flex: 0 0 auto; }
+    .session-row .session-score { font-weight: 700; }
+    .session-row .session-pct { flex: 0 0 auto; }
+
+    .bookmark-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+    }
+    .bookmark-item .bm-q { font-size: 0.9rem; flex: 1; line-height: 1.4; }
+    .bookmark-item .bm-cat { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+    .btn-remove-bookmark {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1rem;
+      padding: 4px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+    .btn-remove-bookmark:hover { color: var(--error); }
+
+    .danger-zone {
+      border: 1px solid rgba(211,47,47,.3);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      background: var(--error-bg);
+      margin-top: 32px;
+    }
+    .danger-zone h3 { color: var(--error); margin-bottom: 8px; }
+    .danger-zone p { color: var(--text-muted); font-size: 0.875rem; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="PassMate UK home">
+        <span>🚗</span>
+        <span>Pass<span class="logo-accent">Mate</span> UK</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="dashboard.html" class="active" aria-current="page">Progress</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="padding-top: 32px; padding-bottom: 48px;">
+
+      <h1 style="margin-bottom: 4px;">Progress Dashboard</h1>
+      <p class="text-muted mb-24" style="font-size: 0.9rem;">Your overall study stats, category breakdown, bookmarks, and recent sessions.</p>
+
+      <!-- Overall Stats -->
+      <section class="section" aria-labelledby="overall-heading">
+        <h2 class="section-title" id="overall-heading">Overall Stats</h2>
+        <div class="stat-cards" id="overall-stats">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- Category Breakdown -->
+      <section class="section" aria-labelledby="cat-heading">
+        <h2 class="section-title" id="cat-heading">By Category</h2>
+        <div style="overflow-x: auto;">
+          <table class="breakdown-table" id="cat-table" aria-label="Progress by category">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th class="hide-mobile">Answered</th>
+                <th>Correct</th>
+                <th>Accuracy</th>
+                <th>Progress</th>
+              </tr>
+            </thead>
+            <tbody id="cat-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section class="section" aria-labelledby="settings-heading">
+        <h2 class="section-title" id="settings-heading">Settings</h2>
+        <div class="card" style="padding: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+
+            <label class="flex-between" style="cursor: pointer; gap: 16px;">
+              <div>
+                <div class="font-bold" style="margin-bottom: 2px;">Auto-advance</div>
+                <div class="text-muted" style="font-size: 0.825rem;">Automatically move to next question after 2s</div>
+              </div>
+              <input type="checkbox" id="toggle-auto" aria-label="Auto-advance" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--yellow);">
+            </label>
+
+            <label class="flex-between" style="cursor: pointer; gap: 16px;">
+              <div>
+                <div class="font-bold" style="margin-bottom: 2px;">Timer in Mock Tests</div>
+                <div class="text-muted" style="font-size: 0.825rem;">57-minute countdown for 50-question mock tests</div>
+              </div>
+              <input type="checkbox" id="toggle-timer" aria-label="Enable timer" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--yellow);">
+            </label>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Bookmarks -->
+      <section class="section" aria-labelledby="bookmarks-heading">
+        <h2 class="section-title" id="bookmarks-heading">Bookmarked Questions</h2>
+        <div id="bookmarks-list" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+        <div id="bookmarks-actions" style="display: none;">
+          <a href="quiz.html?mode=bookmarks" class="btn primary" style="margin-top: 8px;">Practice bookmarks →</a>
+        </div>
+      </section>
+
+      <!-- Recent Sessions -->
+      <section class="section" aria-labelledby="sessions-heading">
+        <h2 class="section-title" id="sessions-heading">Recent Sessions</h2>
+        <div id="sessions-list">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- Danger Zone -->
+      <div class="danger-zone" role="region" aria-labelledby="danger-heading">
+        <h3 id="danger-heading">⚠️ Reset Progress</h3>
+        <p>This will permanently delete all your progress, session history, and bookmarks. This cannot be undone.</p>
+        <button class="btn danger" id="btn-reset" aria-label="Reset all progress data">Reset all progress</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal-overlay" id="reset-modal" role="dialog" aria-modal="true" aria-labelledby="reset-title">
+    <div class="modal">
+      <h3 id="reset-title">Reset all progress?</h3>
+      <p>This will delete all your answers, session history, and bookmarks permanently.</p>
+      <div class="modal-actions">
+        <button class="btn secondary" id="btn-reset-cancel">Cancel</button>
+        <button class="btn danger" id="btn-reset-confirm">Yes, reset</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <footer class="footer" role="contentinfo">
+    <p>Not affiliated with or endorsed by DVSA. Questions based on Highway Code 2025.</p>
+  </footer>
+
+  <script src="../data/questions.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    // ── Dark Mode ─────────────────────────────────────────────
+    const btnTheme = document.getElementById('btn-theme');
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btnTheme.textContent = dark ? '☀️' : '🌙';
+    }
+    const savedDark = Storage.getSetting('darkMode');
+    applyTheme(savedDark !== null ? savedDark : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    btnTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(!isDark);
+      Storage.saveSetting('darkMode', !isDark);
+    });
+
+    // ── Settings ─────────────────────────────────────────────
+    const settings = Storage.getSettings();
+    document.getElementById('toggle-auto').checked = !!settings.autoAdvance;
+    document.getElementById('toggle-timer').checked = !!settings.timerEnabled;
+
+    document.getElementById('toggle-auto').addEventListener('change', e => {
+      Storage.saveSetting('autoAdvance', e.target.checked);
+    });
+    document.getElementById('toggle-timer').addEventListener('change', e => {
+      Storage.saveSetting('timerEnabled', e.target.checked);
+    });
+
+    // ── Overall Stats ─────────────────────────────────────────
+    function renderOverall() {
+      const s = Storage.getOverallStats();
+      const sessions = Storage.getSessions();
+      document.getElementById('overall-stats').innerHTML = `
+        <div class="stat-card"><div class="stat-card-num">${s.totalAttempted || 0}</div><div class="stat-card-label">Answered</div></div>
+        <div class="stat-card"><div class="stat-card-num">${s.accuracy || 0}%</div><div class="stat-card-label">Accuracy</div></div>
+        <div class="stat-card"><div class="stat-card-num">${s.streakDays || 0}🔥</div><div class="stat-card-label">Day Streak</div></div>
+        <div class="stat-card"><div class="stat-card-num">${sessions.length}</div><div class="stat-card-label">Sessions</div></div>
+      `;
+    }
+
+    // ── Category Table ────────────────────────────────────────
+    function renderCategories() {
+      const progress = Storage.getProgress();
+      const tbody = document.getElementById('cat-body');
+      tbody.innerHTML = Quiz.CATEGORIES.map(cat => {
+        const p = progress[cat.slug] || { attempted: 0, correct: 0 };
+        const acc = p.attempted ? Math.round((p.correct / p.attempted) * 100) : null;
+        const barClass = acc === null ? '' : acc >= 70 ? 'good' : acc >= 50 ? 'mid' : 'bad';
+        return `
+          <tr>
+            <td><a href="quiz.html?mode=category&category=${cat.slug}" style="color: var(--text); text-decoration: none;">${cat.icon} ${cat.label}</a></td>
+            <td class="hide-mobile">${p.attempted}</td>
+            <td>${p.correct || 0}</td>
+            <td class="font-bold ${acc === null ? 'text-muted' : acc >= 70 ? 'text-success' : 'text-error'}">${acc !== null ? acc + '%' : '—'}</td>
+            <td>
+              <div class="mini-bar-wrap">
+                <div class="mini-bar ${barClass}" style="width: ${acc || 0}%"></div>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // ── Bookmarks ─────────────────────────────────────────────
+    function renderBookmarks() {
+      const ids = Storage.getBookmarks();
+      const el = document.getElementById('bookmarks-list');
+      const actionsEl = document.getElementById('bookmarks-actions');
+
+      if (!ids.length) {
+        el.innerHTML = '<p class="text-muted" style="font-size:0.875rem;">No bookmarks yet. Bookmark questions during a quiz to review them here.</p>';
+        actionsEl.style.display = 'none';
+        return;
+      }
+
+      actionsEl.style.display = '';
+      const qs = typeof QUESTIONS !== 'undefined'
+        ? QUESTIONS.filter(q => ids.includes(q.id))
+        : [];
+
+      el.innerHTML = qs.map(q => {
+        const cat = Quiz.CATEGORIES.find(c => c.slug === q.category) || {};
+        return `
+          <div class="bookmark-item">
+            <div class="bm-q">
+              <div>${q.question}</div>
+              <div class="bm-cat">${cat.icon || ''} ${cat.label || q.category} · ${q.id}</div>
+            </div>
+            <button class="btn-remove-bookmark" data-id="${q.id}" aria-label="Remove bookmark for question ${q.id}">✕</button>
+          </div>
+        `;
+      }).join('');
+
+      // Bind remove buttons
+      el.querySelectorAll('.btn-remove-bookmark').forEach(btn => {
+        btn.addEventListener('click', () => {
+          Storage.removeBookmark(btn.dataset.id);
+          renderBookmarks();
+        });
+      });
+    }
+
+    // ── Sessions ─────────────────────────────────────────────
+    function renderSessions() {
+      const sessions = Storage.getRecentSessions(10);
+      const el = document.getElementById('sessions-list');
+      if (!sessions.length) {
+        el.innerHTML = '<p class="text-muted" style="font-size:0.875rem;">No sessions yet. Complete a quiz to see your history here.</p>';
+        return;
+      }
+
+      el.innerHTML = sessions.map(s => {
+        const pct = s.totalQuestions ? Math.round((s.score / s.totalQuestions) * 100) : 0;
+        const date = new Date(s.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        const modeLabel = { mock: 'Mock Test', weak: 'Weak Areas', bookmarks: 'Bookmarks' }[s.mode] || 'Category';
+        return `
+          <div class="session-row">
+            <span class="session-date">${date}</span>
+            <span>${modeLabel}</span>
+            <span class="session-score">${s.score}/${s.totalQuestions}</span>
+            <span class="session-pct font-bold ${pct >= 86 ? 'text-success' : pct >= 60 ? '' : 'text-error'}">${pct}%</span>
+            <span class="text-muted hide-mobile">${Quiz.formatTime(s.timeTaken || 0)}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── Toast ─────────────────────────────────────────────────
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    // ── Reset ─────────────────────────────────────────────────
+    const resetModal = document.getElementById('reset-modal');
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      resetModal.classList.add('show');
+    });
+    document.getElementById('btn-reset-cancel').addEventListener('click', () => {
+      resetModal.classList.remove('show');
+    });
+    document.getElementById('btn-reset-confirm').addEventListener('click', () => {
+      Storage.resetProgress();
+      resetModal.classList.remove('show');
+      showToast('Progress reset successfully');
+      renderAll();
+    });
+    resetModal.addEventListener('click', e => {
+      if (e.target === resetModal) resetModal.classList.remove('show');
+    });
+
+    function renderAll() {
+      renderOverall();
+      renderCategories();
+      renderBookmarks();
+      renderSessions();
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>

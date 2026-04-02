@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all 15 DVSA theory test categories. Practice by topic and track your score per category.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Categories — PassMate UK</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="manifest" href="../manifest.json">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="PassMate UK home">
+        <span>🚗</span>
+        <span>Pass<span class="logo-accent">Mate</span> UK</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="categories.html" class="active" aria-current="page">Categories</a></li>
+        <li><a href="dashboard.html">Progress</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="padding-top: 32px;">
+
+      <div class="flex-between mb-24" style="flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h1 style="font-size: 1.8rem; margin-bottom: 4px;">All Categories</h1>
+          <p class="text-muted" style="font-size: 0.9rem;">Choose a topic to practise. Your personal score is shown for each.</p>
+        </div>
+        <a href="quiz.html?mode=mock" class="btn primary" aria-label="Start a full mock test">🎯 Mock Test</a>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="filter-pills" role="group" aria-label="Filter categories">
+        <button class="pill active" data-filter="all" aria-pressed="true">All</button>
+        <button class="pill" data-filter="not-started" aria-pressed="false">Not Started</button>
+        <button class="pill" data-filter="needs-work" aria-pressed="false">Needs Work (&lt;70%)</button>
+        <button class="pill" data-filter="mastered" aria-pressed="false">Mastered (≥70%)</button>
+      </div>
+
+      <!-- Categories List -->
+      <div id="categories-list" aria-live="polite" aria-label="Category list">
+        <!-- Populated by JS -->
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>Not affiliated with or endorsed by DVSA. Questions based on Highway Code 2025.</p>
+  </footer>
+
+  <script src="../data/questions.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    // ── Dark Mode ─────────────────────────────────────────────
+    const btnTheme = document.getElementById('btn-theme');
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btnTheme.textContent = dark ? '☀️' : '🌙';
+    }
+    const savedDark = Storage.getSetting('darkMode');
+    applyTheme(savedDark !== null ? savedDark : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    btnTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(!isDark);
+      Storage.saveSetting('darkMode', !isDark);
+    });
+
+    // ── Build Category Cards ──────────────────────────────────
+    function getQuestionCount(slug) {
+      return typeof QUESTIONS !== 'undefined'
+        ? QUESTIONS.filter(q => q.category === slug).length
+        : 0;
+    }
+
+    function scoreClass(accuracy) {
+      if (accuracy === null) return 'none';
+      if (accuracy >= 70) return 'good';
+      if (accuracy >= 50) return 'mid';
+      return 'bad';
+    }
+
+    function renderCategories(filter = 'all') {
+      const list = document.getElementById('categories-list');
+      const progress = Storage.getProgress();
+
+      const filtered = Quiz.CATEGORIES.filter(cat => {
+        const p = progress[cat.slug] || {};
+        const accuracy = p.attempted ? Math.round((p.correct / p.attempted) * 100) : null;
+        if (filter === 'not-started') return accuracy === null;
+        if (filter === 'needs-work') return accuracy !== null && accuracy < 70;
+        if (filter === 'mastered') return accuracy !== null && accuracy >= 70;
+        return true;
+      });
+
+      if (!filtered.length) {
+        list.innerHTML = '<p class="text-muted" style="padding: 24px 0; text-align:center;">No categories match this filter.</p>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(cat => {
+        const count = getQuestionCount(cat.slug);
+        const p = progress[cat.slug] || {};
+        const accuracy = p.attempted ? Math.round((p.correct / p.attempted) * 100) : null;
+        const cls = scoreClass(accuracy);
+        const scoreText = accuracy !== null ? `${accuracy}%` : 'Not started';
+
+        return `
+          <a href="quiz.html?mode=category&category=${cat.slug}" class="cat-card mb-8"
+             aria-label="Practice ${cat.label} — ${count} questions${accuracy !== null ? ', score ' + accuracy + '%' : ', not started'}">
+            <span class="cat-card-icon" aria-hidden="true">${cat.icon}</span>
+            <div class="cat-card-info">
+              <div class="cat-card-name">${cat.label}</div>
+              <div class="cat-card-meta">${count} questions${p.attempted ? ` · ${p.attempted} answered` : ''}</div>
+            </div>
+            <span class="cat-score ${cls}" aria-label="Score: ${scoreText}">${scoreText}</span>
+          </a>
+        `;
+      }).join('');
+    }
+
+    // Filter pills
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(p => {
+          p.classList.remove('active');
+          p.setAttribute('aria-pressed', 'false');
+        });
+        pill.classList.add('active');
+        pill.setAttribute('aria-pressed', 'true');
+        renderCategories(pill.dataset.filter);
+      });
+    });
+
+    renderCategories();
+  </script>
+</body>
+</html>

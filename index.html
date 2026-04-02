@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free UK Car Theory Test practice. 300+ original questions covering all DVSA categories. No signup required.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>PassMate UK — Free Theory Test Practice</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icons/icon-192.png" type="image/png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PassMate UK home">
+        <span>🚗</span>
+        <span>Pass<span class="logo-accent">Mate</span> UK</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="pages/categories.html">Categories</a></li>
+        <li><a href="pages/dashboard.html">Progress</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" role="banner">
+    <div class="container container--narrow">
+      <div class="hero-badge">DVSA 2024/2025 Aligned</div>
+      <h1>PassMate <span>UK</span></h1>
+      <p class="hero-sub">Practice like the real thing. All 15 DVSA categories. Instant feedback. 100% Free.</p>
+      <div class="btn-group flex-center mb-0">
+        <a href="pages/quiz.html?mode=mock" class="btn primary" aria-label="Start a 50-question mock theory test">🎯 Start Mock Test</a>
+        <a href="pages/categories.html" class="btn secondary" aria-label="Browse all topic categories">Browse Categories</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar" role="complementary" aria-label="Quick stats">
+    <div class="stat"><span class="stat-num" id="q-count">304</span> Questions</div>
+    <div class="stat"><span class="stat-num">15</span> Topics</div>
+    <div class="stat"><span class="stat-num">100%</span> Free</div>
+    <div class="stat"><span class="stat-num">✓</span> Works Offline</div>
+  </div>
+
+  <main>
+    <div class="container" style="padding-top: 40px;">
+
+      <!-- Quick Start Cards -->
+      <section class="section" aria-labelledby="quickstart-heading">
+        <h2 class="section-title" id="quickstart-heading">Quick Start</h2>
+        <div class="cards-grid">
+
+          <a href="pages/quiz.html?mode=mock" class="card card--primary" aria-label="Mock Test — 50 questions, timed, DVSA format">
+            <div class="card-icon">🎯</div>
+            <div class="card-label">Mock Test</div>
+            <div class="card-sub">50 questions · 57 mins · Timed</div>
+            <div class="card-accent"></div>
+          </a>
+
+          <a href="pages/categories.html" class="card" aria-label="Practice by category">
+            <div class="card-icon">📚</div>
+            <div class="card-label">By Category</div>
+            <div class="card-sub">Focus on one topic at a time</div>
+            <div class="card-accent"></div>
+          </a>
+
+          <a href="pages/quiz.html?mode=weak" class="card" id="card-weak" aria-label="Practice your weak areas">
+            <div class="card-icon">📈</div>
+            <div class="card-label">Weak Areas</div>
+            <div class="card-sub">Questions where you struggle</div>
+            <div class="card-accent"></div>
+          </a>
+
+          <a href="pages/dashboard.html" class="card" aria-label="View your progress and stats">
+            <div class="card-icon">📊</div>
+            <div class="card-label">Progress</div>
+            <div class="card-sub">Track your improvement</div>
+            <div class="card-accent"></div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Personal Stats (shown if progress exists) -->
+      <section class="section" id="personal-stats" aria-labelledby="stats-heading" style="display:none;">
+        <h2 class="section-title" id="stats-heading">Your Progress</h2>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-num" id="stat-accuracy">—</div>
+            <div class="stat-card-label">Accuracy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num" id="stat-answered">—</div>
+            <div class="stat-card-label">Answered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num" id="stat-streak">—</div>
+            <div class="stat-card-label">Day Streak</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num" id="stat-sessions">—</div>
+            <div class="stat-card-label">Sessions</div>
+          </div>
+        </div>
+        <a href="pages/dashboard.html" class="btn ghost">View full dashboard →</a>
+      </section>
+
+      <!-- About -->
+      <section class="section" aria-labelledby="about-heading">
+        <h2 class="section-title" id="about-heading">About PassMate UK</h2>
+        <div class="card" style="padding: 24px;">
+          <p style="margin-bottom: 12px; line-height: 1.7;">PassMate UK is a free, community-built tool to help you prepare for the UK car theory test. Every question covers a topic from the DVSA's official curriculum and aligns with the <strong>Highway Code 2025</strong>.</p>
+          <p style="line-height: 1.7; color: var(--text-muted); font-size: 0.875rem;">All questions are <strong>original</strong> — written from knowledge of the Highway Code domains, not copied from any commercial app or website. The app works entirely offline after your first visit.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <p style="margin-bottom: 6px;">
+      <strong style="color: rgba(255,255,255,.9);">PassMate UK</strong> — Free Theory Test Practice
+    </p>
+    <p>Not affiliated with or endorsed by DVSA. Questions based on Highway Code 2025.</p>
+    <p style="margin-top: 8px;">
+      <a href="https://www.gov.uk/highway-code" target="_blank" rel="noopener">Official Highway Code</a> ·
+      <a href="https://www.gov.uk/theory-test" target="_blank" rel="noopener">DVSA Theory Test</a>
+    </p>
+  </footer>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="data/questions.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script>
+    // ── Dark Mode ─────────────────────────────────────────────
+    const btnTheme = document.getElementById('btn-theme');
+
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btnTheme.textContent = dark ? '☀️' : '🌙';
+      btnTheme.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    const savedDark = Storage.getSetting('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(savedDark !== null ? savedDark : prefersDark);
+
+    btnTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(!isDark);
+      Storage.saveSetting('darkMode', !isDark);
+    });
+
+    // ── Update Q count ────────────────────────────────────────
+    if (typeof QUESTIONS !== 'undefined') {
+      document.getElementById('q-count').textContent = QUESTIONS.length;
+    }
+
+    // ── Personal stats ────────────────────────────────────────
+    const stats = Storage.getOverallStats();
+    const sessions = Storage.getSessions();
+    if (stats.totalAttempted > 0) {
+      document.getElementById('personal-stats').style.display = '';
+      document.getElementById('stat-accuracy').textContent = stats.accuracy + '%';
+      document.getElementById('stat-answered').textContent = stats.totalAttempted;
+      document.getElementById('stat-streak').textContent = stats.streakDays + '🔥';
+      document.getElementById('stat-sessions').textContent = sessions.length;
+    }
+
+    // ── Service Worker ────────────────────────────────────────
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(err => {
+        console.warn('SW registration failed:', err);
+      });
+    }
+  </script>
+</body>
+</html>

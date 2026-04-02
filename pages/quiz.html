@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Theory test practice quiz — answer questions, get instant feedback and explanations.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Quiz — PassMate UK</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <style>
+    .quiz-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      margin-bottom: 8px;
+    }
+    .timer { font-variant-numeric: tabular-nums; }
+    .auto-advance-badge {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      background: rgba(245,200,66,.15);
+      border: 1px solid rgba(245,200,66,.3);
+      color: var(--yellow);
+      border-radius: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="PassMate UK home">
+        <span>🚗</span>
+        <span>Pass<span class="logo-accent">Mate</span> UK</span>
+      </a>
+      <div class="nav-actions">
+        <span id="timer-display" class="timer" aria-live="off"></span>
+        <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container quiz-layout">
+
+      <!-- Top bar: breadcrumb + quit -->
+      <div class="quiz-top-bar">
+        <div id="session-label" class="text-muted" style="font-size: 0.875rem; font-weight: 600;"></div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span id="auto-advance-badge" class="auto-advance-badge hidden">Auto →</span>
+          <button id="btn-quit" class="btn secondary" style="padding: 8px 16px; min-height: 36px; font-size: 0.825rem;" aria-label="Quit this session">Quit</button>
+        </div>
+      </div>
+
+      <!-- Quiz content area -->
+      <div id="quiz-area">
+        <div style="text-align: center; padding: 60px 0;">
+          <p class="text-muted">Loading questions…</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Quit Confirmation Modal -->
+  <div class="modal-overlay" id="quit-modal" role="dialog" aria-modal="true" aria-labelledby="quit-title">
+    <div class="modal">
+      <h3 id="quit-title">Quit this session?</h3>
+      <p>Your progress in this session will be saved but the session will end early.</p>
+      <div class="modal-actions">
+        <button class="btn secondary" id="btn-quit-cancel">Keep going</button>
+        <button class="btn danger" id="btn-quit-confirm">Yes, quit</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script src="../data/questions.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/analytics.js"></script>
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    // ── Dark Mode ─────────────────────────────────────────────
+    const btnTheme = document.getElementById('btn-theme');
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btnTheme.textContent = dark ? '☀️' : '🌙';
+    }
+    const savedDark = Storage.getSetting('darkMode');
+    applyTheme(savedDark !== null ? savedDark : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    btnTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(!isDark);
+      Storage.saveSetting('darkMode', !isDark);
+    });
+
+    // ── Session Setup ─────────────────────────────────────────
+    const config = Quiz.getSessionConfig();
+    const settings = Storage.getSettings();
+    let session;
+    let autoAdvanceTimer = null;
+
+    function buildQuestions() {
+      if (!QUESTIONS || !QUESTIONS.length) return [];
+      switch (config.mode) {
+        case 'mock': return Quiz.getMockTestQuestions(QUESTIONS);
+        case 'weak': return Quiz.getWeakAreaQuestions(QUESTIONS);
+        case 'bookmarks': return Quiz.getBookmarkedQuestions(QUESTIONS);
+        default: {
+          // category mode
+          const cat = Quiz.getByCategory(config.category, QUESTIONS);
+          if (!cat.length) return Quiz.shuffle(QUESTIONS).slice(0, config.count);
+          return Quiz.shuffle(cat).slice(0, config.count || cat.length);
+        }
+      }
+    }
+
+    function modeLabel() {
+      switch (config.mode) {
+        case 'mock': return '🎯 Mock Test';
+        case 'weak': return '📈 Weak Areas';
+        case 'bookmarks': return '🔖 Bookmarks';
+        default: {
+          const cat = Quiz.CATEGORIES.find(c => c.slug === config.category);
+          return cat ? `${cat.icon} ${cat.label}` : '📝 Practice';
+        }
+      }
+    }
+
+    document.getElementById('session-label').textContent = modeLabel();
+    document.getElementById('auto-advance-badge').classList.toggle('hidden', !settings.autoAdvance);
+
+    const questions = buildQuestions();
+
+    if (!questions.length) {
+      document.getElementById('quiz-area').innerHTML = `
+        <div style="text-align: center; padding: 60px 0;">
+          <p style="font-size: 1.5rem; margin-bottom: 16px;">😕</p>
+          <p class="font-bold mb-8">No questions found</p>
+          <p class="text-muted mb-24">Try a different category or start a mock test.</p>
+          <a href="../index.html" class="btn primary">Go Home</a>
+        </div>
+      `;
+    } else {
+      session = new Quiz.QuizSession(questions, config.mode);
+      renderCurrentQuestion();
+
+      // Start timer for mock tests if enabled
+      if (config.mode === 'mock' && settings.timerEnabled) {
+        const timerEl = document.getElementById('timer-display');
+        session.startTimer(
+          (remaining) => {
+            timerEl.textContent = Quiz.formatTime(remaining);
+            timerEl.className = 'timer' + (remaining < 300 ? ' warning' : '') + (remaining < 60 ? ' critical' : '');
+          },
+          () => finishSession()
+        );
+      }
+    }
+
+    // ── Render Question ───────────────────────────────────────
+    function renderCurrentQuestion() {
+      if (session.isComplete) { finishSession(); return; }
+      const area = document.getElementById('quiz-area');
+      Quiz.renderQuestion(session, area);
+
+      // Bind option buttons
+      area.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => handleAnswer(btn.dataset.letter));
+      });
+
+      // Bind next button — it exists in the DOM inside the hidden explanation
+      // panel. renderQuestion replaces innerHTML each call so no listener leak.
+      const btnNext = area.querySelector('#btn-next');
+      if (btnNext) {
+        btnNext.addEventListener('click', () => {
+          clearAutoAdvance();
+          session.advance();
+          renderCurrentQuestion();
+        });
+      }
+    }
+
+    function handleAnswer(chosenLetter) {
+      const area = document.getElementById('quiz-area');
+      session.recordAnswer(chosenLetter);
+      Quiz.showAnswer(session, chosenLetter, area);
+
+      // Auto-advance
+      if (settings.autoAdvance) {
+        autoAdvanceTimer = setTimeout(() => {
+          session.advance();
+          renderCurrentQuestion();
+        }, 2200);
+      }
+    }
+
+    function clearAutoAdvance() {
+      if (autoAdvanceTimer) { clearTimeout(autoAdvanceTimer); autoAdvanceTimer = null; }
+    }
+
+    // ── Finish Session ────────────────────────────────────────
+    function finishSession() {
+      session.stopTimer();
+      clearAutoAdvance();
+      session.saveResults();
+
+      // Pass result to results page via sessionStorage
+      sessionStorage.setItem('passmate_last_session', JSON.stringify({
+        score: session.score,
+        totalQuestions: session.questions.length,
+        timeTaken: session.elapsed,
+        mode: session.mode,
+        answers: session.answers,
+        passed: Quiz.calcPassFail(session.score, session.questions.length, session.mode)
+      }));
+
+      window.location.href = 'results.html';
+    }
+
+    // ── Quit Button ───────────────────────────────────────────
+    const quitModal = document.getElementById('quit-modal');
+    document.getElementById('btn-quit').addEventListener('click', () => {
+      quitModal.classList.add('show');
+    });
+    document.getElementById('btn-quit-cancel').addEventListener('click', () => {
+      quitModal.classList.remove('show');
+    });
+    document.getElementById('btn-quit-confirm').addEventListener('click', () => {
+      if (session && session.answers.length > 0) {
+        session.saveResults();
+      }
+      window.location.href = '../index.html';
+    });
+
+    // Close modal on overlay click
+    quitModal.addEventListener('click', e => {
+      if (e.target === quitModal) quitModal.classList.remove('show');
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (quitModal.classList.contains('show')) quitModal.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your quiz results — score, pass/fail, category breakdown and next steps.">
+  <meta name="theme-color" content="#0b1f3a">
+  <title>Results — PassMate UK</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="manifest" href="../manifest.json">
+  <style>
+    .weakest-card {
+      background: var(--warning-bg);
+      border: 1px solid rgba(230,126,0,.2);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .weakest-card h3 { color: var(--warning); margin-bottom: 10px; font-size: 1rem; }
+    .weak-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(230,126,0,.1);
+      font-size: 0.9rem;
+    }
+    .weak-item:last-child { border-bottom: none; }
+    .session-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      margin-bottom: 24px;
+    }
+    .session-meta .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .session-meta .meta-val { font-weight: 700; font-size: 1rem; }
+    .score-animate {
+      animation: countUp 800ms ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="PassMate UK home">
+        <span>🚗</span>
+        <span>Pass<span class="logo-accent">Mate</span> UK</span>
+      </a>
+      <div class="nav-actions">
+        <button class="btn-theme" id="btn-theme" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container" style="padding-top: 32px; padding-bottom: 48px;">
+
+      <!-- Score Hero -->
+      <div class="results-hero anim-slide" id="results-hero">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Session Meta -->
+      <div class="session-meta" id="session-meta" aria-label="Session statistics">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Weakest Areas Callout -->
+      <div id="weak-areas" style="margin-bottom: 24px;"></div>
+
+      <!-- Category Breakdown -->
+      <section class="section" aria-labelledby="breakdown-heading">
+        <h2 class="section-title" id="breakdown-heading">Category Breakdown</h2>
+        <div style="overflow-x: auto;">
+          <table class="breakdown-table" id="breakdown-table" aria-label="Scores by category">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th class="hide-mobile">Questions</th>
+                <th>Score</th>
+                <th>Progress</th>
+              </tr>
+            </thead>
+            <tbody id="breakdown-body">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <div class="btn-group mt-24" id="action-buttons">
+        <!-- Populated by JS -->
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>Not affiliated with or endorsed by DVSA. Questions based on Highway Code 2025.</p>
+  </footer>
+
+  <script src="../data/questions.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/quiz.js"></script>
+  <script>
+    // ── Dark Mode ─────────────────────────────────────────────
+    const btnTheme = document.getElementById('btn-theme');
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      btnTheme.textContent = dark ? '☀️' : '🌙';
+    }
+    const savedDark = Storage.getSetting('darkMode');
+    applyTheme(savedDark !== null ? savedDark : window.matchMedia('(prefers-color-scheme: dark)').matches);
+    btnTheme.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(!isDark);
+      Storage.saveSetting('darkMode', !isDark);
+    });
+
+    // ── Load Session ──────────────────────────────────────────
+    const raw = sessionStorage.getItem('passmate_last_session');
+    const session = raw ? JSON.parse(raw) : null;
+
+    if (!session) {
+      document.querySelector('main').innerHTML = `
+        <div class="container" style="padding: 60px 0; text-align: center;">
+          <p style="font-size: 2rem; margin-bottom: 16px;">🤔</p>
+          <p class="font-bold mb-16">No results to show</p>
+          <a href="../index.html" class="btn primary">Go Home</a>
+        </div>
+      `;
+    } else {
+      renderResults(session);
+    }
+
+    function renderResults(s) {
+      const pct = Math.round((s.score / s.totalQuestions) * 100);
+      const isMock = s.mode === 'mock';
+      const passed = s.passed;
+
+      // ── Hero ──
+      const hero = document.getElementById('results-hero');
+      hero.innerHTML = `
+        <div class="score-circle ${isMock ? (passed ? 'pass' : 'fail') : ''} score-animate" aria-label="Score: ${s.score} out of ${s.totalQuestions}">
+          <span class="score-number">${pct}%</span>
+          <span class="score-label">${s.score}/${s.totalQuestions}</span>
+        </div>
+        ${isMock ? `<div class="pass-badge ${passed ? 'pass' : 'fail'}" role="status">${passed ? '✅ PASS' : '❌ FAIL'}</div>` : ''}
+        <h1 style="margin-bottom: 8px; font-size: 1.8rem;">${getResultTitle(pct, isMock, passed)}</h1>
+        <p class="text-muted">${getResultSub(pct, isMock, passed)}</p>
+      `;
+
+      // ── Session Meta ──
+      const meta = document.getElementById('session-meta');
+      meta.innerHTML = `
+        <div class="meta-item"><span class="text-muted">Time taken</span><span class="meta-val">${Quiz.formatTime(s.timeTaken || 0)}</span></div>
+        <div class="meta-item"><span class="text-muted">Questions</span><span class="meta-val">${s.totalQuestions}</span></div>
+        <div class="meta-item"><span class="text-muted">Correct</span><span class="meta-val text-success">${s.score}</span></div>
+        <div class="meta-item"><span class="text-muted">Incorrect</span><span class="meta-val text-error">${s.totalQuestions - s.score}</span></div>
+        ${isMock ? `<div class="meta-item"><span class="text-muted">Pass mark</span><span class="meta-val">43/50 (86%)</span></div>` : ''}
+        <div class="meta-item"><span class="text-muted">Mode</span><span class="meta-val">${modeLabel(s.mode)}</span></div>
+      `;
+
+      // ── Weakest Areas ──
+      const weakest = Quiz.getWeakestCategories(s.answers || [], 3);
+      if (weakest.length > 0 && weakest[0].accuracy < 80) {
+        const weakEl = document.getElementById('weak-areas');
+        weakEl.innerHTML = `
+          <div class="weakest-card" aria-labelledby="weak-heading">
+            <h3 id="weak-heading">⚠️ Areas to improve</h3>
+            ${weakest.map(w => {
+              const cat = Quiz.CATEGORIES.find(c => c.slug === w.category);
+              return `
+                <div class="weak-item">
+                  <span>${cat ? cat.icon + ' ' + cat.label : w.category}</span>
+                  <span class="font-bold text-error">${w.accuracy}%</span>
+                </div>
+              `;
+            }).join('')}
+            <a href="quiz.html?mode=weak" class="btn ghost" style="margin-top: 12px; padding: 8px 0; font-size: 0.875rem;">
+              Practice weak areas →
+            </a>
+          </div>
+        `;
+      }
+
+      // ── Category Breakdown ──
+      const catBreakdown = {};
+      (s.answers || []).forEach(({ category, correct }) => {
+        if (!catBreakdown[category]) catBreakdown[category] = { attempted: 0, correct: 0 };
+        catBreakdown[category].attempted++;
+        if (correct) catBreakdown[category].correct++;
+      });
+
+      const tbody = document.getElementById('breakdown-body');
+      tbody.innerHTML = Object.entries(catBreakdown).map(([slug, p]) => {
+        const catInfo = Quiz.CATEGORIES.find(c => c.slug === slug) || { label: slug, icon: '📝' };
+        const acc = Math.round((p.correct / p.attempted) * 100);
+        const barClass = acc >= 70 ? 'good' : acc >= 50 ? 'mid' : 'bad';
+        return `
+          <tr>
+            <td>${catInfo.icon} ${catInfo.label}</td>
+            <td class="hide-mobile">${p.attempted}</td>
+            <td class="font-bold">${acc}%</td>
+            <td>
+              <div class="mini-bar-wrap">
+                <div class="mini-bar ${barClass}" style="width: ${acc}%"></div>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      // ── Action Buttons ──
+      const actions = document.getElementById('action-buttons');
+      const retryUrl = `quiz.html?mode=${s.mode}${s.mode === 'category' && s.categories?.length ? '&category=' + s.categories[0] : ''}`;
+      actions.innerHTML = `
+        <a href="${retryUrl}" class="btn primary">🔄 Retry Session</a>
+        <a href="quiz.html?mode=weak" class="btn secondary">📈 Practice Weak Areas</a>
+        <a href="../index.html" class="btn ghost">🏠 Home</a>
+      `;
+    }
+
+    function getResultTitle(pct, isMock, passed) {
+      if (isMock) return passed ? 'You passed! 🎉' : 'Not quite — keep going!';
+      if (pct >= 90) return 'Excellent work! 🌟';
+      if (pct >= 70) return 'Good effort! 👍';
+      if (pct >= 50) return 'Keep practising 💪';
+      return 'Don\'t give up!';
+    }
+
+    function getResultSub(pct, isMock, passed) {
+      if (isMock) {
+        return passed
+          ? 'You scored above the 86% pass mark. You\'re well prepared!'
+          : 'The DVSA pass mark is 43/50 (86%). Review the weak areas below and try again.';
+      }
+      if (pct >= 70) return 'You\'re making great progress with this topic.';
+      return 'Review the explanations and try again to improve your score.';
+    }
+
+    function modeLabel(mode) {
+      switch (mode) {
+        case 'mock': return 'Mock Test';
+        case 'weak': return 'Weak Areas';
+        case 'bookmarks': return 'Bookmarks';
+        default: return 'Category Practice';
+      }
+    }
+  </script>
+</body>
+</html>
