@@ -402,6 +402,15 @@ main { flex: 1; padding-bottom: 40px; }
 }
 .btn.secondary:hover { background: var(--bg); border-color: var(--grey-300); }
 
+.hero .btn.secondary {
+  color: var(--white);
+  border-color: rgba(255,255,255,0.5);
+}
+.hero .btn.secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--white);
+}
+
 .btn.ghost {
   background: transparent;
   color: var(--yellow);
