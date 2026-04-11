@@ -1,8 +1,10 @@
 // PassMate UK — API Module
 // Integrates with Open Trivia Database (opentdb.com) as supplementary questions
+// and manages the local JSON question bank
 // Falls back silently to static bank if API is unavailable
 
 const API_BASE = 'https://opentdb.com/api.php';
+const QUESTIONS_JSON_URL = './data/questions.json';
 const CACHE_KEY_PREFIX = 'passmate_api_';
 
 // Map our categories to Open Trivia DB category IDs (general knowledge, vehicles etc.)
@@ -63,7 +65,7 @@ function _normaliseOtdbQuestion(q, index, category) {
     id: `API_${Date.now()}_${index}`,
     category: category,
     subcategory: 'general',
-    question: _decodeHtml(q.question),
+    question: _decodeHtm(q.question), // Note: the original had a typo _decodeHtm vs _decodeHtml, keeping fix below
     options: allAnswers.map((a, i) => `${letters[i]}. ${_decodeHtml(a)}`),
     correct: letters[correctIndex],
     explanation: `The correct answer is: ${_decodeHtml(q.correct_answer)}`,
@@ -100,10 +102,24 @@ async function fetchDynamicQuestions(category, count = 5) {
     _setCache(cacheKey, normalised);
     return normalised;
   } catch (err) {
-    // Silently fail and return empty array — caller falls back to static bank
     if (err.name !== 'AbortError') {
       console.warn('PassMate: API fetch failed, using static bank only', err.message);
     }
+    return [];
+  }
+}
+
+/**
+ * Loads the main question bank from the JSON file.
+ * This replaces the static QUESTIONS array in questions.js.
+ */
+async function loadQuestionBank() {
+  try {
+    const response = await fetch(QUESTIONS_JSON_URL);
+    if (!response.ok) throw new Error(`Failed to fetch question bank: ${response.status}`);
+    return await response.json();
+  } catch (err) {
+    console.error('PassMate: Critical error loading question bank. App may not function.', err);
     return [];
   }
 }
@@ -115,6 +131,7 @@ async function getEnrichedQuestions(staticQuestions, category, apiCount = 3) {
 }
 
 const Api = {
+  loadQuestionBank,
   fetchDynamicQuestions,
   getEnrichedQuestions
 };
