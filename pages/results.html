@@ -9,6 +9,86 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="manifest" href="../manifest.json">
   <style>
+    /* ── Review Answers ── */
+    .review-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .review-item.review-correct { border-left-color: var(--success); }
+    .review-item.review-incorrect { border-left-color: var(--error); }
+    .review-item-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .review-item-header .review-qnum { font-weight: 700; color: var(--text); }
+    .review-item-header .review-diff { margin-left: auto; font-style: italic; text-transform: capitalize; }
+    .review-item-question {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .review-options { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+    .review-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .review-option.opt-correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+      font-weight: 600;
+    }
+    .review-option.opt-incorrect {
+      border-color: var(--error);
+      background: var(--error-bg);
+      color: var(--error);
+    }
+    .review-option .opt-letter {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.75rem;
+      flex-shrink: 0;
+      color: var(--text-muted);
+    }
+    .review-option.opt-correct .opt-letter { background: var(--success); color: #fff; }
+    .review-option.opt-incorrect .opt-letter { background: var(--error); color: #fff; }
+    .review-explanation {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+    .review-hc {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--bg);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-top: 8px;
+    }
+    /* ── Original styles ── */
     .weakest-card {
       background: var(--warning-bg);
       border: 1px solid rgba(230,126,0,.2);
@@ -98,6 +178,18 @@
       <div class="btn-group mt-24" id="action-buttons">
         <!-- Populated by JS -->
       </div>
+
+      <!-- Answer Review -->
+      <section class="section" aria-labelledby="review-heading" id="review-section">
+        <h2 class="section-title" id="review-heading">Review Answers</h2>
+        <div class="filter-pills" role="group" aria-label="Filter answers">
+          <button class="pill active" id="filter-all">All Questions</button>
+          <button class="pill" id="filter-wrong">Incorrect Only</button>
+        </div>
+        <div id="review-list" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </section>
 
     </div>
   </main>
@@ -226,6 +318,20 @@
         <a href="quiz.html?mode=weak" class="btn secondary">📈 Practice Weak Areas</a>
         <a href="../index.html" class="btn ghost">🏠 Home</a>
       `;
+
+      // ── Answer Review ──
+      renderReview(s, 'all');
+
+      document.getElementById('filter-all').addEventListener('click', () => {
+        document.getElementById('filter-all').classList.add('active');
+        document.getElementById('filter-wrong').classList.remove('active');
+        renderReview(s, 'all');
+      });
+      document.getElementById('filter-wrong').addEventListener('click', () => {
+        document.getElementById('filter-wrong').classList.add('active');
+        document.getElementById('filter-all').classList.remove('active');
+        renderReview(s, 'wrong');
+      });
     }
 
     function getResultTitle(pct, isMock, passed) {
@@ -253,6 +359,67 @@
         case 'bookmarks': return 'Bookmarks';
         default: return 'Category Practice';
       }
+    }
+
+    // ── Answer Review ─────────────────────────────────────────
+    function renderReview(s, filter) {
+      const listEl = document.getElementById('review-list');
+      const allQuestions = typeof QUESTIONS !== 'undefined' ? QUESTIONS : [];
+      const qMap = {};
+      allQuestions.forEach(q => { qMap[q.id] = q; });
+
+      const answers = s.answers || [];
+      const toShow = answers
+        .map((a, i) => Object.assign({}, a, { globalIdx: i }))
+        .filter(a => filter === 'wrong' ? !a.correct : true);
+
+      if (!toShow.length) {
+        listEl.innerHTML = `<p class="text-muted" style="font-size:0.875rem;">${
+          filter === 'wrong' ? '🎉 You answered all questions correctly!' : 'No answers to review.'
+        }</p>`;
+        return;
+      }
+
+      const letters = ['A', 'B', 'C', 'D'];
+      listEl.innerHTML = toShow.map(a => {
+        const q = qMap[a.questionId];
+        if (!q) return '';
+
+        const catInfo = Quiz.CATEGORIES.find(c => c.slug === q.category) || { label: q.category, icon: '📝' };
+
+        const optionsHtml = q.options.map((opt, i) => {
+          const letter = letters[i];
+          const isCorrect = letter === q.correct;
+          const isWrongChosen = letter === a.chosen && !a.correct;
+
+          let cls = 'review-option';
+          if (isCorrect) cls += ' opt-correct';
+          else if (isWrongChosen) cls += ' opt-incorrect';
+
+          const tag = isCorrect ? ' ✓' : isWrongChosen ? ' ✗' : '';
+          return `
+            <div class="${cls}">
+              <span class="opt-letter">${letter}</span>
+              <span>${opt.replace(/^[A-D]\.\s*/, '')}${tag ? `<strong>${tag}</strong>` : ''}</span>
+            </div>`;
+        }).join('');
+
+        return `
+          <div class="review-item ${a.correct ? 'review-correct' : 'review-incorrect'}">
+            <div class="review-item-header">
+              <span>${a.correct ? '✅' : '❌'}</span>
+              <span class="review-qnum">Q${a.globalIdx + 1}</span>
+              <span>${catInfo.icon} ${catInfo.label}</span>
+              ${q.difficulty ? `<span class="review-diff">${q.difficulty}</span>` : ''}
+            </div>
+            <p class="review-item-question">${q.question}</p>
+            <div class="review-options">${optionsHtml}</div>
+            <div class="review-explanation">
+              ${q.explanation}
+              ${q.hcRule ? `<div class="review-hc">📖 Highway Code: <strong>${q.hcRule}</strong></div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
     }
   </script>
 </body>
