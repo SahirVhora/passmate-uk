@@ -65,7 +65,7 @@ function _normaliseOtdbQuestion(q, index, category) {
     id: `API_${Date.now()}_${index}`,
     category: category,
     subcategory: 'general',
-    question: _decodeHtm(q.question), // Note: the original had a typo _decodeHtm vs _decodeHtml, keeping fix below
+    question: _decodeHtml(q.question),
     options: allAnswers.map((a, i) => `${letters[i]}. ${_decodeHtml(a)}`),
     correct: letters[correctIndex],
     explanation: `The correct answer is: ${_decodeHtml(q.correct_answer)}`,
