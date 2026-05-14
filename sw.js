@@ -1,7 +1,7 @@
 // PassMate UK — Service Worker
 // Cache-first strategy for full offline support
 
-const CACHE_NAME = 'passmate-uk-v2';
+const CACHE_NAME = 'passmate-v2';
 
 const STATIC_ASSETS = [
   './',

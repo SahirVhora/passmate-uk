@@ -70,8 +70,8 @@
       <h3 id="quit-title">Quit this session?</h3>
       <p>Your progress in this session will be saved but the session will end early.</p>
       <div class="modal-actions">
-        <button class="btn secondary" id="btn-quit-cancel">Keep going</button>
-        <button class="btn danger" id="btn-quit-confirm">Yes, quit</button>
+        <button class="btn secondary" id="btn-quit-cancel" aria-label="Cancel and keep going">Keep going</button>
+        <button class="btn danger" id="btn-quit-confirm" aria-label="Confirm quit and end session">Yes, quit</button>
       </div>
     </div>
   </div>
@@ -110,6 +110,12 @@
         case 'mock': return Quiz.getMockTestQuestions(QUESTIONS);
         case 'weak': return Quiz.getWeakAreaQuestions(QUESTIONS);
         case 'bookmarks': return Quiz.getBookmarkedQuestions(QUESTIONS);
+        case 'review': {
+          // Review incorrect answers from last session
+          const reviewIds = JSON.parse(sessionStorage.getItem('passmate_review_ids') || '[]');
+          const reviewQs = QUESTIONS.filter(q => reviewIds.includes(q.id));
+          return reviewQs.length ? reviewQs : [];
+        }
         default: {
           // category mode
           const cat = Quiz.getByCategory(config.category, QUESTIONS);
@@ -124,6 +130,7 @@
         case 'mock': return '🎯 Mock Test';
         case 'weak': return '📈 Weak Areas';
         case 'bookmarks': return '🔖 Bookmarks';
+        case 'review': return '🔁 Review Incorrect';
         default: {
           const cat = Quiz.CATEGORIES.find(c => c.slug === config.category);
           return cat ? `${cat.icon} ${cat.label}` : '📝 Practice';
@@ -244,8 +251,80 @@
 
     // Keyboard shortcuts
     document.addEventListener('keydown', e => {
+      // Escape: close quit modal or open it
       if (e.key === 'Escape') {
-        if (quitModal.classList.contains('show')) quitModal.classList.remove('show');
+        if (quitModal.classList.contains('show')) {
+          quitModal.classList.remove('show');
+        } else {
+          quitModal.classList.add('show');
+        }
+        return;
+      }
+
+      // If quit modal is open, only handle Escape (above)
+      if (quitModal.classList.contains('show')) return;
+
+      // If explanation panel is visible (answer revealed)
+      const explanationVisible = document.getElementById('explanation-panel')?.classList.contains('visible');
+
+      if (explanationVisible) {
+        // Enter / Space / ArrowRight = next question
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          clearAutoAdvance();
+          session.advance();
+          renderCurrentQuestion();
+          return;
+        }
+        // ArrowLeft = previous question (if available)
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          if (session.currentIndex > 0) {
+            session.currentIndex--;
+            session.questionStartTime = Date.now();
+            renderCurrentQuestion();
+          }
+          return;
+        }
+        // B = toggle bookmark
+        if (e.key === 'b' || e.key === 'B') {
+          e.preventDefault();
+          const q = session.currentQuestion;
+          const nowBookmarked = Storage.toggleBookmark(q.id);
+          const bookmarkBtn = document.getElementById('btn-bookmark');
+          if (bookmarkBtn) {
+            bookmarkBtn.classList.toggle('active', nowBookmarked);
+            bookmarkBtn.textContent = nowBookmarked ? '🔖 Bookmarked' : '🔖 Bookmark';
+          }
+          return;
+        }
+        return;
+      }
+
+      // Options: 1-4 or A-D
+      const optionBtns = document.querySelectorAll('.option-btn');
+      if (optionBtns.length === 0) return;
+
+      if (e.key >= '1' && e.key <= '4') {
+        e.preventDefault();
+        const idx = parseInt(e.key, 10) - 1;
+        if (optionBtns[idx] && !optionBtns[idx].disabled) {
+          handleAnswer(optionBtns[idx].dataset.letter);
+        }
+        return;
+      }
+
+      if (e.key === 'a' || e.key === 'A') { e.preventDefault(); handleAnswer('A'); return; }
+      if (e.key === 'b' || e.key === 'B') { e.preventDefault(); handleAnswer('B'); return; }
+      if (e.key === 'c' || e.key === 'C') { e.preventDefault(); handleAnswer('C'); return; }
+      if (e.key === 'd' || e.key === 'D') { e.preventDefault(); handleAnswer('D'); return; }
+
+      // Space = reveal answer for first non-disabled option (or use Enter)
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const firstEnabled = Array.from(optionBtns).find(b => !b.disabled);
+        if (firstEnabled) handleAnswer(firstEnabled.dataset.letter);
+        return;
       }
     });
   </script>

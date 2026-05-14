@@ -310,11 +310,17 @@
         `;
       }).join('');
 
+      // ── Incorrect Question IDs for Review ──
+      const incorrectIds = (s.answers || [])
+        .filter(a => !a.correct)
+        .map(a => a.questionId);
+
       // ── Action Buttons ──
       const actions = document.getElementById('action-buttons');
       const retryUrl = `quiz.html?mode=${s.mode}${s.mode === 'category' && s.categories?.length ? '&category=' + s.categories[0] : ''}`;
       actions.innerHTML = `
         <a href="${retryUrl}" class="btn primary">🔄 Retry Session</a>
+        ${incorrectIds.length ? `<button class="btn secondary" id="btn-review-incorrect">🔁 Review ${incorrectIds.length} Incorrect</button>` : ''}
         <a href="quiz.html?mode=weak" class="btn secondary">📈 Practice Weak Areas</a>
         <a href="../index.html" class="btn ghost">🏠 Home</a>
       `;
@@ -332,6 +338,15 @@
         document.getElementById('filter-all').classList.remove('active');
         renderReview(s, 'wrong');
       });
+
+      // Bind review incorrect button (re-quiz wrong answers)
+      const btnReview = document.getElementById('btn-review-incorrect');
+      if (btnReview && incorrectIds.length) {
+        btnReview.addEventListener('click', () => {
+          sessionStorage.setItem('passmate_review_ids', JSON.stringify(incorrectIds));
+          window.location.href = 'quiz.html?mode=review';
+        });
+      }
     }
 
     function getResultTitle(pct, isMock, passed) {
