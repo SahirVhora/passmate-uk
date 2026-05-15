@@ -1,24 +1,25 @@
 // PassMate UK — Service Worker
 // Cache-first strategy for full offline support
 
-const CACHE_NAME = 'passmate-v2';
+const CACHE_NAME = 'passmate-v3';
 
 const STATIC_ASSETS = [
-  './',
-  './index.html',
-  './pages/categories.html',
-  './pages/quiz.html',
-  './pages/results.html',
-  './pages/dashboard.html',
-  './assets/css/style.css',
-  './assets/js/quiz.js',
-  './assets/js/storage.js',
-  './assets/js/api.js',
-  './assets/js/analytics.js',
-  './data/questions.js',
-  './manifest.json',
-  './assets/icons/icon-192.png',
-  './assets/icons/icon-512.png',
+  '/passmate-uk/',
+  '/passmate-uk/index.html',
+  '/passmate-uk/pages/categories.html',
+  '/passmate-uk/pages/quiz.html',
+  '/passmate-uk/pages/results.html',
+  '/passmate-uk/pages/dashboard.html',
+  '/passmate-uk/assets/css/style.css',
+  '/passmate-uk/assets/js/quiz.js',
+  '/passmate-uk/assets/js/storage.js',
+  '/passmate-uk/assets/js/api.js',
+  '/passmate-uk/assets/js/analytics.js',
+  '/passmate-uk/data/questions.js',
+  '/passmate-uk/manifest.json',
+  '/passmate-uk/preview.svg',
+  '/passmate-uk/assets/icons/icon-192.png',
+  '/passmate-uk/assets/icons/icon-512.png',
   // Google Fonts — cache the loaded fonts (fetched dynamically)
   'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap'
 ];
@@ -87,7 +88,7 @@ self.addEventListener('fetch', event => {
       }).catch(() => {
         // Offline and not cached — return offline page for navigation
         if (event.request.mode === 'navigate') {
-          return caches.match('./index.html');
+          return caches.match('/passmate-uk/index.html');
         }
         return new Response('Offline', { status: 503 });
       });
