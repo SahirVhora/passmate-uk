@@ -137,3 +137,7 @@ Contributions welcome! To add or correct questions:
 ## Licence
 
 MIT — free to use, modify, and distribute.
+
+## Next Learning Enhancement
+
+See [docs/spaced-repetition.md](docs/spaced-repetition.md) for the proposed local spaced-repetition queue. It builds on the existing weak-area and bookmark logic without changing the mock-test behaviour.
