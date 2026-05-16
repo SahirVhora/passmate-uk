@@ -1,4 +1,4 @@
-// PassMate UK — Service Worker
+// PassMate UK - Service Worker
 // Cache-first strategy for full offline support
 
 const CACHE_NAME = 'passmate-v3';
@@ -20,7 +20,7 @@ const STATIC_ASSETS = [
   '/passmate-uk/preview.svg',
   '/passmate-uk/assets/icons/icon-192.png',
   '/passmate-uk/assets/icons/icon-512.png',
-  // Google Fonts — cache the loaded fonts (fetched dynamically)
+  // Google Fonts - cache the loaded fonts (fetched dynamically)
   'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap'
 ];
 
@@ -62,7 +62,7 @@ self.addEventListener('fetch', event => {
   // Skip browser-extension requests
   if (!event.request.url.startsWith('http')) return;
 
-  // Skip Open Trivia DB API calls — always go to network for fresh data
+  // Skip Open Trivia DB API calls - always go to network for fresh data
   if (event.request.url.includes('opentdb.com')) {
     event.respondWith(
       fetch(event.request).catch(() => new Response('[]', {
@@ -76,7 +76,7 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(cached => {
       if (cached) return cached;
 
-      // Not in cache — fetch from network and cache it
+      // Not in cache - fetch from network and cache it
       return fetch(event.request).then(response => {
         if (!response || response.status !== 200) return response;
 
@@ -86,7 +86,7 @@ self.addEventListener('fetch', event => {
         });
         return response;
       }).catch(() => {
-        // Offline and not cached — return offline page for navigation
+        // Offline and not cached - return offline page for navigation
         if (event.request.mode === 'navigate') {
           return caches.match('/passmate-uk/index.html');
         }

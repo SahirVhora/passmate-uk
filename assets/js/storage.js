@@ -1,4 +1,4 @@
-// PassMate UK — Storage Module
+// PassMate UK - Storage Module
 // All persistence via localStorage
 
 const STORAGE_KEY = 'passmate_uk';

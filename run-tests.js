@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// PassMate UK — Test Runner
+// PassMate UK - Test Runner
 // Usage: node run-tests.js
 
 'use strict';
 
 console.log('');
 console.log('╔═══════════════════════════════════════════╗');
-console.log('║       PassMate UK — Test Suite            ║');
+console.log('║       PassMate UK - Test Suite            ║');
 console.log('╚═══════════════════════════════════════════╝');
 
 let totalPassed = 0;
@@ -77,7 +77,7 @@ function printSummary() {
     console.log(`  ${icon}  ${suite.name.padEnd(22)} passed: ${suite.passed}  failed: ${suite.failed}`);
     if (suite.failures && suite.failures.length) {
       suite.failures.forEach(f => {
-        console.log(`       ↳ FAIL: ${f.label}${f.detail ? ' — ' + f.detail : ''}`);
+        console.log(`       ↳ FAIL: ${f.label}${f.detail ? ' - ' + f.detail : ''}`);
       });
     }
   });

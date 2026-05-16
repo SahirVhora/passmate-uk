@@ -1,4 +1,4 @@
-// PassMate UK — Question Bank
+// PassMate UK - Question Bank
 // 300+ original questions based on DVSA 2024/2025 theory test domains
 // All questions are original and not copied from any commercial source.
 
@@ -66,7 +66,7 @@ const QUESTIONS = [
   {
     id: "Q008", category: "alertness", subcategory: "anticipation",
     question: "A ball rolls into the road ahead. What should you expect?",
-    options: ["A. Nothing — balls rarely cause accidents", "B. A child may run into the road to fetch it", "C. Another vehicle may swerve to avoid it", "D. The ball will stop rolling quickly"],
+    options: ["A. Nothing - balls rarely cause accidents", "B. A child may run into the road to fetch it", "C. Another vehicle may swerve to avoid it", "D. The ball will stop rolling quickly"],
     correct: "B", difficulty: "easy",
     explanation: "A ball in the road often means a child is nearby and may run into the road without checking for traffic. Slow down and be prepared to stop.",
     hcRule: "Rule 206", imageUrl: null
@@ -76,7 +76,7 @@ const QUESTIONS = [
     question: "What does a good driving position help you achieve?",
     options: ["A. Faster acceleration", "B. Better all-round visibility and control", "C. Lower insurance premiums", "D. Reduced tyre wear"],
     correct: "B", difficulty: "easy",
-    explanation: "A correct driving position — seat adjusted, mirrors set, hands at 10-and-2 or 9-and-3 — gives you full control of the vehicle and good visibility in all directions.",
+    explanation: "A correct driving position - seat adjusted, mirrors set, hands at 10-and-2 or 9-and-3 - gives you full control of the vehicle and good visibility in all directions.",
     hcRule: "Rule 97", imageUrl: null
   },
   {
@@ -84,7 +84,7 @@ const QUESTIONS = [
     question: "Why is it dangerous to drive while under the influence of some prescription medicines?",
     options: ["A. Prescription medicines are always safe to drive on", "B. Some medicines can cause drowsiness, blurred vision, or impaired reactions", "C. Medicines only affect cyclists", "D. Only illegal drugs affect driving ability"],
     correct: "B", difficulty: "medium",
-    explanation: "Certain prescribed medications — including antihistamines, strong painkillers, and sedatives — can impair your ability to drive. Always check the label or ask your doctor.",
+    explanation: "Certain prescribed medications - including antihistamines, strong painkillers, and sedatives - can impair your ability to drive. Always check the label or ask your doctor.",
     hcRule: "Rule 96", imageUrl: null
   },
   {
@@ -98,7 +98,7 @@ const QUESTIONS = [
   {
     id: "Q012", category: "alertness", subcategory: "anticipation",
     question: "You see a school ahead with children on the pavement. What should you do?",
-    options: ["A. Maintain your speed — children should wait", "B. Sound your horn to warn children", "C. Slow down and be ready to stop", "D. Flash your lights"],
+    options: ["A. Maintain your speed - children should wait", "B. Sound your horn to warn children", "C. Slow down and be ready to stop", "D. Flash your lights"],
     correct: "C", difficulty: "easy",
     explanation: "Near schools, children may step into the road unexpectedly. Reduce speed and be ready to stop. Be especially alert at school start and finish times.",
     hcRule: "Rule 206", imageUrl: null
@@ -130,7 +130,7 @@ const QUESTIONS = [
   {
     id: "Q016", category: "alertness", subcategory: "anticipation",
     question: "A pedestrian is walking along the road at night wearing dark clothing. What should you do?",
-    options: ["A. Flash your lights to warn them", "B. Sound your horn", "C. Slow down — they may be difficult to see in time", "D. Move to the opposite side of the road"],
+    options: ["A. Flash your lights to warn them", "B. Sound your horn", "C. Slow down - they may be difficult to see in time", "D. Move to the opposite side of the road"],
     correct: "C", difficulty: "medium",
     explanation: "Pedestrians in dark clothing are very hard to see at night. Reduce speed so your stopping distance is within the area illuminated by your headlights.",
     hcRule: "Rule 93", imageUrl: null
@@ -162,7 +162,7 @@ const QUESTIONS = [
   {
     id: "Q020", category: "alertness", subcategory: "observation",
     question: "What effect can strong sunlight have on driving?",
-    options: ["A. No effect — sunlight improves visibility", "B. It can dazzle drivers and obscure hazards, especially when low on the horizon", "C. It makes road markings brighter and easier to see", "D. It reduces stopping distances"],
+    options: ["A. No effect - sunlight improves visibility", "B. It can dazzle drivers and obscure hazards, especially when low on the horizon", "C. It makes road markings brighter and easier to see", "D. It reduces stopping distances"],
     correct: "B", difficulty: "easy",
     explanation: "Low sun can be very dangerous, particularly at sunrise and sunset. Use your sun visor and sunglasses. Slow down if sun is directly in your eyes and you cannot see clearly.",
     hcRule: "Rule 237", imageUrl: null
@@ -216,15 +216,15 @@ const QUESTIONS = [
     question: "Another driver makes a mistake that nearly causes an accident. What is the safest response?",
     options: ["A. Follow them closely and flash your lights", "B. Overtake them and brake sharply in front", "C. Take a breath, stay calm, and continue driving safely", "D. Wind down your window and shout at them"],
     correct: "C", difficulty: "easy",
-    explanation: "Retaliating with aggression escalates danger. Stay calm and continue driving safely. Everyone makes mistakes — aggressive responses can cause serious accidents.",
+    explanation: "Retaliating with aggression escalates danger. Stay calm and continue driving safely. Everyone makes mistakes - aggressive responses can cause serious accidents.",
     hcRule: "Rule 147", imageUrl: null
   },
   {
     id: "Q027", category: "attitude", subcategory: "consideration",
     question: "You are driving behind a learner driver who is going slowly. What should you do?",
-    options: ["A. Sit very close behind them to encourage them to speed up", "B. Overtake at the first opportunity, even on a bend", "C. Be patient — learning to drive takes time and slow speeds are normal", "D. Sound your horn repeatedly"],
+    options: ["A. Sit very close behind them to encourage them to speed up", "B. Overtake at the first opportunity, even on a bend", "C. Be patient - learning to drive takes time and slow speeds are normal", "D. Sound your horn repeatedly"],
     correct: "C", difficulty: "easy",
-    explanation: "Learner drivers are still developing their skills and may drive slowly or hesitantly. Be patient and give them space — tailgating them increases their anxiety and the risk of an accident.",
+    explanation: "Learner drivers are still developing their skills and may drive slowly or hesitantly. Be patient and give them space - tailgating them increases their anxiety and the risk of an accident.",
     hcRule: "Rule 147", imageUrl: null
   },
   {
@@ -238,7 +238,7 @@ const QUESTIONS = [
   {
     id: "Q029", category: "attitude", subcategory: "courtesy",
     question: "You are reversing from a driveway and blocking a passing pedestrian. What should you do?",
-    options: ["A. Continue reversing — the highway belongs to vehicles", "B. Stop and let the pedestrian pass before continuing", "C. Sound your horn to warn them to wait", "D. Reverse as fast as possible to clear their path quicker"],
+    options: ["A. Continue reversing - the highway belongs to vehicles", "B. Stop and let the pedestrian pass before continuing", "C. Sound your horn to warn them to wait", "D. Reverse as fast as possible to clear their path quicker"],
     correct: "B", difficulty: "easy",
     explanation: "Pedestrians have priority on the pavement and crossing the road. Stop your manoeuvre and allow them to pass safely before continuing.",
     hcRule: "Rule 206", imageUrl: null
@@ -264,7 +264,7 @@ const QUESTIONS = [
     question: "When parking on a residential street, why should you consider your neighbours?",
     options: ["A. To avoid parking fines", "B. To avoid blocking driveways, dropped kerbs, and access routes", "C. To ensure your vehicle is safe from theft", "D. There is no need to consider neighbours when parking"],
     correct: "B", difficulty: "easy",
-    explanation: "Parking inconsiderately — blocking dropped kerbs, driveways, or bus stops — is inconsiderate and often illegal. Think about how your parking affects others.",
+    explanation: "Parking inconsiderately - blocking dropped kerbs, driveways, or bus stops - is inconsiderate and often illegal. Think about how your parking affects others.",
     hcRule: "Rule 243", imageUrl: null
   },
   {
@@ -286,7 +286,7 @@ const QUESTIONS = [
   {
     id: "Q035", category: "attitude", subcategory: "road-rage",
     question: "You feel very angry after an argument before setting off. What should you do?",
-    options: ["A. Drive as normal — emotions do not affect driving", "B. Wait until you have calmed down before driving", "C. Drive faster to release tension", "D. Use loud music to distract yourself from anger"],
+    options: ["A. Drive as normal - emotions do not affect driving", "B. Wait until you have calmed down before driving", "C. Drive faster to release tension", "D. Use loud music to distract yourself from anger"],
     correct: "B", difficulty: "medium",
     explanation: "Driving while angry significantly impairs judgment and increases risk-taking. Wait until you feel calm before driving, or find an alternative way to travel.",
     hcRule: "Rule 90", imageUrl: null
@@ -304,13 +304,13 @@ const QUESTIONS = [
     question: "Why should you avoid using your headlights to flash at other drivers when they are behind a slow vehicle?",
     options: ["A. It is illegal in all circumstances", "B. It could be misread as aggression or signal to overtake when it is unsafe", "C. Headlights are only for night use", "D. It uses too much battery power"],
     correct: "B", difficulty: "medium",
-    explanation: "Flashing headlights is officially only for warning of your presence. Other uses can be misinterpreted — you should never signal to another driver that it is safe to overtake.",
+    explanation: "Flashing headlights is officially only for warning of your presence. Other uses can be misinterpreted - you should never signal to another driver that it is safe to overtake.",
     hcRule: "Rule 110", imageUrl: null
   },
   {
     id: "Q038", category: "attitude", subcategory: "consideration",
     question: "You are driving in a queue at traffic lights. The lights turn green but the vehicle ahead has not moved. What should you do?",
-    options: ["A. Sound your horn immediately", "B. Wait for a few moments — the driver may not have seen the lights yet", "C. Overtake them", "D. Flash your headlights"],
+    options: ["A. Sound your horn immediately", "B. Wait for a few moments - the driver may not have seen the lights yet", "C. Overtake them", "D. Flash your headlights"],
     correct: "B", difficulty: "easy",
     explanation: "Give drivers a moment before sounding your horn. Aggressive responses to minor delays are unnecessary and increase stress for everyone.",
     hcRule: "Rule 147", imageUrl: null
@@ -348,7 +348,7 @@ const QUESTIONS = [
     question: "At 70 mph on a dry road, what is the overall stopping distance?",
     options: ["A. 53 metres", "B. 75 metres", "C. 96 metres", "D. 120 metres"],
     correct: "C", difficulty: "hard",
-    explanation: "At 70 mph the thinking distance is 21m and braking distance 75m, giving 96 metres overall — equivalent to 24 car lengths.",
+    explanation: "At 70 mph the thinking distance is 21m and braking distance 75m, giving 96 metres overall - equivalent to 24 car lengths.",
     hcRule: "Rule 126", imageUrl: null
   },
   {
@@ -396,15 +396,15 @@ const QUESTIONS = [
     question: "You are driving behind a large lorry. Why should you increase your following distance?",
     options: ["A. Lorries brake faster than cars", "B. Lorries obscure your view ahead and require longer stopping distances", "C. Lorry drivers have priority", "D. The law requires 10 car lengths behind lorries"],
     correct: "B", difficulty: "easy",
-    explanation: "Large vehicles block your forward view — you cannot see hazards ahead. They also take longer to stop, so you need more space. Increase your following distance significantly.",
+    explanation: "Large vehicles block your forward view - you cannot see hazards ahead. They also take longer to stop, so you need more space. Increase your following distance significantly.",
     hcRule: "Rule 126", imageUrl: null
   },
   {
     id: "Q049", category: "safety-margins", subcategory: "braking",
     question: "What is aquaplaning and how does it affect braking?",
-    options: ["A. Braking while on water — has no effect on safety", "B. When a layer of water builds between tyres and road, causing loss of steering and braking ability", "C. When brakes overheat in wet conditions", "D. A type of brake fade on motorways"],
+    options: ["A. Braking while on water - has no effect on safety", "B. When a layer of water builds between tyres and road, causing loss of steering and braking ability", "C. When brakes overheat in wet conditions", "D. A type of brake fade on motorways"],
     correct: "B", difficulty: "hard",
-    explanation: "Aquaplaning occurs when tyres ride on a film of water rather than the road. You lose control of steering and braking. Ease off the accelerator gently — do not brake sharply.",
+    explanation: "Aquaplaning occurs when tyres ride on a film of water rather than the road. You lose control of steering and braking. Ease off the accelerator gently - do not brake sharply.",
     hcRule: "Rule 227", imageUrl: null
   },
   {
@@ -418,7 +418,7 @@ const QUESTIONS = [
   {
     id: "Q051", category: "safety-margins", subcategory: "braking",
     question: "Your brakes feel 'spongy' when you press the pedal. What does this suggest?",
-    options: ["A. The brakes are fine — just the brake pads settling", "B. There may be air in the brake fluid or a fluid leak — get them checked immediately", "C. You need to press harder", "D. The handbrake is partially on"],
+    options: ["A. The brakes are fine - just the brake pads settling", "B. There may be air in the brake fluid or a fluid leak - get them checked immediately", "C. You need to press harder", "D. The handbrake is partially on"],
     correct: "B", difficulty: "medium",
     explanation: "Spongy brakes often indicate air in the hydraulic system or a fluid leak. This is a serious safety issue and the vehicle should not be driven until inspected by a mechanic.",
     hcRule: "Rule 89", imageUrl: null
@@ -436,7 +436,7 @@ const QUESTIONS = [
     question: "How much does braking distance increase if your speed doubles from 30 mph to 60 mph?",
     options: ["A. It doubles", "B. It triples", "C. It quadruples", "D. It stays the same"],
     correct: "C", difficulty: "hard",
-    explanation: "Braking distance increases with the SQUARE of speed. Doubling your speed from 30 to 60 mph quadruples your braking distance — from 14m to 55m.",
+    explanation: "Braking distance increases with the SQUARE of speed. Doubling your speed from 30 to 60 mph quadruples your braking distance - from 14m to 55m.",
     hcRule: "Rule 126", imageUrl: null
   },
   {
@@ -504,7 +504,7 @@ const QUESTIONS = [
     question: "What is a 'developing hazard'?",
     options: ["A. A permanent hazard such as a sharp bend", "B. A situation that is changing and may require you to take action", "C. A hazard marked by road signs", "D. A hazard that only affects motorcyclists"],
     correct: "B", difficulty: "easy",
-    explanation: "A developing hazard is one that is unfolding — such as a pedestrian stepping off the kerb, or a car pulling out of a junction. It requires active monitoring and a response.",
+    explanation: "A developing hazard is one that is unfolding - such as a pedestrian stepping off the kerb, or a car pulling out of a junction. It requires active monitoring and a response.",
     hcRule: "Rule 159", imageUrl: null
   },
   {
@@ -512,7 +512,7 @@ const QUESTIONS = [
     question: "You approach a parked ice cream van on the left with children nearby. What hazard should you anticipate?",
     options: ["A. The van may move off suddenly", "B. Children may run into the road without looking", "C. The van may cause congestion", "D. Other drivers may stop to buy ice cream"],
     correct: "B", difficulty: "easy",
-    explanation: "Children near parked vehicles — especially an ice cream van — may dash into the road impulsively. Slow down significantly and be ready to stop.",
+    explanation: "Children near parked vehicles - especially an ice cream van - may dash into the road impulsively. Slow down significantly and be ready to stop.",
     hcRule: "Rule 206", imageUrl: null
   },
   {
@@ -528,7 +528,7 @@ const QUESTIONS = [
     question: "What is the hazard of driving near a row of parked cars?",
     options: ["A. You may get caught by a parking restriction", "B. Car doors may open suddenly into your path", "C. Parked cars may roll forwards", "D. Drivers may be texting and distracted"],
     correct: "B", difficulty: "easy",
-    explanation: "Car doors can open without warning. Leave a 1-metre gap when passing parked cars to avoid being hit by an opening door — this is sometimes called the 'door zone'.",
+    explanation: "Car doors can open without warning. Leave a 1-metre gap when passing parked cars to avoid being hit by an opening door - this is sometimes called the 'door zone'.",
     hcRule: "Rule 211", imageUrl: null
   },
   {
@@ -550,7 +550,7 @@ const QUESTIONS = [
   {
     id: "Q067", category: "hazard-awareness", subcategory: "developing-hazards",
     question: "You are driving on a country road and a tractor pulls out of a field ahead. What should you do?",
-    options: ["A. Sound your horn and flash your lights", "B. Overtake immediately while you have space", "C. Slow down and be prepared to stop — tractors can be slow and may make wide turns", "D. Drive around the tractor onto the verge"],
+    options: ["A. Sound your horn and flash your lights", "B. Overtake immediately while you have space", "C. Slow down and be prepared to stop - tractors can be slow and may make wide turns", "D. Drive around the tractor onto the verge"],
     correct: "C", difficulty: "easy",
     explanation: "Tractors are large, slow, and may turn very wide or stop unexpectedly. Slow down, stay back, and only overtake when there is clear visibility and sufficient space.",
     hcRule: "Rule 169", imageUrl: null
@@ -566,7 +566,7 @@ const QUESTIONS = [
   {
     id: "Q069", category: "hazard-awareness", subcategory: "developing-hazards",
     question: "You are approaching a junction and see a pedestrian about to step off the kerb. They are looking the wrong way. What should you do?",
-    options: ["A. Sound your horn and maintain speed", "B. Slow down and be ready to stop — they may step into your path", "C. Flash your lights", "D. Move to the centre of the road"],
+    options: ["A. Sound your horn and maintain speed", "B. Slow down and be ready to stop - they may step into your path", "C. Flash your lights", "D. Move to the centre of the road"],
     correct: "B", difficulty: "easy",
     explanation: "A pedestrian looking the wrong way may step out in front of you. Anticipate this, slow down, and be ready to stop.",
     hcRule: "Rule 170", imageUrl: null
@@ -576,7 +576,7 @@ const QUESTIONS = [
     question: "What is the main danger of driving on a road where leaves have fallen?",
     options: ["A. Reduced visibility", "B. Wet leaves are as slippery as ice and dramatically reduce grip", "C. Leaves block road drains and cause flooding", "D. Leaves are only a problem at night"],
     correct: "B", difficulty: "medium",
-    explanation: "Wet autumn leaves are extremely slippery and can reduce grip to near-zero. Treat them with as much caution as ice — reduce speed and brake gently.",
+    explanation: "Wet autumn leaves are extremely slippery and can reduce grip to near-zero. Treat them with as much caution as ice - reduce speed and brake gently.",
     hcRule: "Rule 227", imageUrl: null
   },
   {
@@ -584,7 +584,7 @@ const QUESTIONS = [
     question: "A car ahead signals left but you suspect it is going to turn right. What should you do?",
     options: ["A. Overtake on the right immediately", "B. Hang back and wait to see what happens before committing", "C. Sound your horn to correct them", "D. Flash your lights"],
     correct: "B", difficulty: "medium",
-    explanation: "Never act solely on another driver's signal — it may be incorrect or still engaged from a previous turn. Observe their actual movement before deciding what to do.",
+    explanation: "Never act solely on another driver's signal - it may be incorrect or still engaged from a previous turn. Observe their actual movement before deciding what to do.",
     hcRule: "Rule 170", imageUrl: null
   },
   {
@@ -614,7 +614,7 @@ const QUESTIONS = [
   {
     id: "Q075", category: "hazard-awareness", subcategory: "developing-hazards",
     question: "You are following a lorry that is indicating left at a junction. Why should you not overtake on the left?",
-    options: ["A. Lorries always have priority at junctions", "B. The lorry may swing right before turning left — you could be trapped on the inside", "C. It is always illegal to overtake at junctions", "D. Lorries indicate incorrectly by law"],
+    options: ["A. Lorries always have priority at junctions", "B. The lorry may swing right before turning left - you could be trapped on the inside", "C. It is always illegal to overtake at junctions", "D. Lorries indicate incorrectly by law"],
     correct: "B", difficulty: "hard",
     explanation: "Long vehicles often swing wide to the right before making a tight left turn. If you attempt to pass on the left, you could be trapped between the lorry and the kerb.",
     hcRule: "Rule 167", imageUrl: null
@@ -646,17 +646,17 @@ const QUESTIONS = [
   {
     id: "Q079", category: "hazard-awareness", subcategory: "developing-hazards",
     question: "A pedestrian steps off the pavement into the road ahead without looking. You are 30 metres away at 30 mph. What should you do?",
-    options: ["A. Swerve to avoid and sound horn", "B. Brake firmly — your stopping distance at 30 mph is 23 metres", "C. Flash lights only", "D. Accelerate to get past before they step further"],
+    options: ["A. Swerve to avoid and sound horn", "B. Brake firmly - your stopping distance at 30 mph is 23 metres", "C. Flash lights only", "D. Accelerate to get past before they step further"],
     correct: "B", difficulty: "medium",
-    explanation: "At 30 mph your stopping distance is ~23 metres. With 30 metres, you should be able to stop if you react immediately. Brake firmly — do not swerve unless braking is impossible.",
+    explanation: "At 30 mph your stopping distance is ~23 metres. With 30 metres, you should be able to stop if you react immediately. Brake firmly - do not swerve unless braking is impossible.",
     hcRule: "Rule 126", imageUrl: null
   },
   {
     id: "Q080", category: "hazard-awareness", subcategory: "static-hazards",
     question: "What is the danger of a dip in the road (a low point between two hills)?",
-    options: ["A. It looks like there is nothing ahead", "B. Water collects in dips and vehicles — including pedestrians or cyclists — may be hidden", "C. The road always narrows in dips", "D. Dips are only dangerous to motorcycles"],
+    options: ["A. It looks like there is nothing ahead", "B. Water collects in dips and vehicles - including pedestrians or cyclists - may be hidden", "C. The road always narrows in dips", "D. Dips are only dangerous to motorcycles"],
     correct: "B", difficulty: "medium",
-    explanation: "A dip in the road can conceal hazards — a stopped vehicle, flooding, or a cyclist at the bottom. Always reduce speed and be ready to stop when approaching a dip.",
+    explanation: "A dip in the road can conceal hazards - a stopped vehicle, flooding, or a cyclist at the bottom. Always reduce speed and be ready to stop when approaching a dip.",
     hcRule: "Rule 160", imageUrl: null
   },
 
@@ -674,7 +674,7 @@ const QUESTIONS = [
   {
     id: "Q082", category: "vulnerable-road-users", subcategory: "pedestrians",
     question: "You are driving towards a zebra crossing where a person is waiting to cross. What must you do?",
-    options: ["A. Sound your horn to acknowledge them and drive through", "B. Flash your lights to tell them to wait", "C. Slow down and give way once they step onto the crossing", "D. Continue — they have not stepped out yet"],
+    options: ["A. Sound your horn to acknowledge them and drive through", "B. Flash your lights to tell them to wait", "C. Slow down and give way once they step onto the crossing", "D. Continue - they have not stepped out yet"],
     correct: "C", difficulty: "easy",
     explanation: "You must give way to pedestrians on a zebra crossing. Once they have stepped onto the crossing, you must stop. Be prepared to stop even before they step out.",
     hcRule: "Rule 195", imageUrl: null
@@ -684,13 +684,13 @@ const QUESTIONS = [
     question: "Why are motorcyclists particularly vulnerable at junctions?",
     options: ["A. Motorcycles have no brakes", "B. Motorcycles are harder to see and may be travelling faster than expected", "C. Motorcyclists always break speed limits", "D. Junctions have no speed limit for motorcycles"],
     correct: "B", difficulty: "easy",
-    explanation: "Motorcycles are narrow and can be hidden behind other vehicles or missed due to their size. Always look specifically for motorcycles — 'SMIDSY' (Sorry Mate I Didn't See You) is a common collision cause.",
+    explanation: "Motorcycles are narrow and can be hidden behind other vehicles or missed due to their size. Always look specifically for motorcycles - 'SMIDSY' (Sorry Mate I Didn't See You) is a common collision cause.",
     hcRule: "Rule 211", imageUrl: null
   },
   {
     id: "Q084", category: "vulnerable-road-users", subcategory: "horse-riders",
     question: "You are approaching a horse and rider on a narrow lane. What should you do?",
-    options: ["A. Sound your horn to warn them you are approaching", "B. Pass slowly and wide, as horses can be frightened by vehicles", "C. Flash your lights and pass quickly", "D. Continue at normal speed — horses are used to traffic"],
+    options: ["A. Sound your horn to warn them you are approaching", "B. Pass slowly and wide, as horses can be frightened by vehicles", "C. Flash your lights and pass quickly", "D. Continue at normal speed - horses are used to traffic"],
     correct: "B", difficulty: "easy",
     explanation: "Horses can be frightened by engine noise and sudden movements. Pass wide and slowly. If the horse appears nervous, stop and switch off your engine.",
     hcRule: "Rule 215", imageUrl: null
@@ -698,7 +698,7 @@ const QUESTIONS = [
   {
     id: "Q085", category: "vulnerable-road-users", subcategory: "cyclists",
     question: "A cyclist is riding in the centre of a narrow lane. What should you do?",
-    options: ["A. Sound your horn to make them move over", "B. Overtake immediately — they are breaking the rules", "C. Be patient and wait for a safe opportunity to pass with plenty of room", "D. Rev your engine to signal your intention to pass"],
+    options: ["A. Sound your horn to make them move over", "B. Overtake immediately - they are breaking the rules", "C. Be patient and wait for a safe opportunity to pass with plenty of room", "D. Rev your engine to signal your intention to pass"],
     correct: "C", difficulty: "easy",
     explanation: "Cyclists may ride in the centre of a narrow lane to discourage unsafe overtaking. This is acceptable behaviour. Be patient and only overtake when you can leave sufficient space.",
     hcRule: "Rule 213", imageUrl: null
@@ -740,7 +740,7 @@ const QUESTIONS = [
     question: "A group of horses is blocking the road and a rider waves you down. What should you do?",
     options: ["A. Edge past them slowly while they are grouped", "B. Stop and switch off your engine until the rider signals it is safe to proceed", "C. Sound your horn gently to encourage them to move", "D. Reverse and find an alternative route immediately"],
     correct: "B", difficulty: "medium",
-    explanation: "Stop and switch off your engine — the noise may panic the horses. Wait for the rider's signal before moving. This is a common equestrian crossing situation.",
+    explanation: "Stop and switch off your engine - the noise may panic the horses. Wait for the rider's signal before moving. This is a common equestrian crossing situation.",
     hcRule: "Rule 215", imageUrl: null
   },
   {
@@ -770,7 +770,7 @@ const QUESTIONS = [
   {
     id: "Q094", category: "vulnerable-road-users", subcategory: "cyclists",
     question: "A cyclist is wobbling slightly ahead. What should this tell you?",
-    options: ["A. They are about to fall — accelerate past immediately", "B. They may be a young or inexperienced cyclist — slow down and give them more space", "C. You should sound your horn to warn them", "D. They are deliberately blocking the road"],
+    options: ["A. They are about to fall - accelerate past immediately", "B. They may be a young or inexperienced cyclist - slow down and give them more space", "C. You should sound your horn to warn them", "D. They are deliberately blocking the road"],
     correct: "B", difficulty: "easy",
     explanation: "A cyclist who wobbles may be young, inexperienced, or reacting to a road surface defect. Give them extra space and do not pressure them by driving close behind.",
     hcRule: "Rule 212", imageUrl: null
@@ -802,7 +802,7 @@ const QUESTIONS = [
   {
     id: "Q098", category: "vulnerable-road-users", subcategory: "cyclists",
     question: "You want to turn left at a junction. A cyclist is alongside you. What should you do?",
-    options: ["A. Turn left sharply — you have right of way", "B. Let the cyclist go ahead before turning", "C. Sound your horn and turn", "D. Move the cyclist aside with your bumper"],
+    options: ["A. Turn left sharply - you have right of way", "B. Let the cyclist go ahead before turning", "C. Sound your horn and turn", "D. Move the cyclist aside with your bumper"],
     correct: "B", difficulty: "easy",
     explanation: "Cyclists travelling alongside you when you turn left are in serious danger of being hit. Check your left mirror and left blind spot before turning and give way to cyclists.",
     hcRule: "Rule 182", imageUrl: null
@@ -810,7 +810,7 @@ const QUESTIONS = [
   {
     id: "Q099", category: "vulnerable-road-users", subcategory: "pedestrians",
     question: "You are reversing around a corner. A pedestrian walks behind your car. What should you do?",
-    options: ["A. Continue — it is their fault for walking behind a reversing vehicle", "B. Sound horn and continue", "C. Stop immediately and wait until they have cleared the area", "D. Accelerate to clear the manoeuvre faster"],
+    options: ["A. Continue - it is their fault for walking behind a reversing vehicle", "B. Sound horn and continue", "C. Stop immediately and wait until they have cleared the area", "D. Accelerate to clear the manoeuvre faster"],
     correct: "C", difficulty: "easy",
     explanation: "When reversing, other road users have priority. Stop and wait until the path is clear. Never continue reversing around a pedestrian.",
     hcRule: "Rule 206", imageUrl: null
@@ -838,7 +838,7 @@ const QUESTIONS = [
   {
     id: "Q102", category: "other-types-of-vehicle", subcategory: "buses",
     question: "A bus is indicating to pull out from a bus stop. What should you do?",
-    options: ["A. Maintain speed — you have right of way", "B. If it is safe, allow the bus to pull out — buses have priority in some areas", "C. Overtake the bus immediately before it moves", "D. Sound your horn to indicate you are passing"],
+    options: ["A. Maintain speed - you have right of way", "B. If it is safe, allow the bus to pull out - buses have priority in some areas", "C. Overtake the bus immediately before it moves", "D. Sound your horn to indicate you are passing"],
     correct: "B", difficulty: "medium",
     explanation: "In many areas buses have priority when pulling out from stops (indicated by a 'Give way to buses' sign). Even where they don't have legal priority, giving way improves traffic flow.",
     hcRule: "Rule 223", imageUrl: null
@@ -846,7 +846,7 @@ const QUESTIONS = [
   {
     id: "Q103", category: "other-types-of-vehicle", subcategory: "emergency-vehicles",
     question: "You hear an emergency vehicle's siren behind you. What should you do?",
-    options: ["A. Brake sharply and stop immediately wherever you are", "B. Pull over safely as soon as possible to let the vehicle pass", "C. Speed up to clear the route faster", "D. Ignore it — it will find another route"],
+    options: ["A. Brake sharply and stop immediately wherever you are", "B. Pull over safely as soon as possible to let the vehicle pass", "C. Speed up to clear the route faster", "D. Ignore it - it will find another route"],
     correct: "B", difficulty: "easy",
     explanation: "Pull over to the left as soon as it is safe to do so. Do not mount the kerb, block a junction, or stop on a no-stopping area. Act calmly and safely.",
     hcRule: "Rule 219", imageUrl: null
@@ -862,9 +862,9 @@ const QUESTIONS = [
   {
     id: "Q105", category: "other-types-of-vehicle", subcategory: "emergency-vehicles",
     question: "An ambulance is approaching at speed from behind. You are at a red traffic light. What should you do?",
-    options: ["A. Drive through the red light immediately to clear the path", "B. Wait for the light to change, then move if it is safe", "C. Stay put — never cross a red light", "D. Drive onto the pavement"],
+    options: ["A. Drive through the red light immediately to clear the path", "B. Wait for the light to change, then move if it is safe", "C. Stay put - never cross a red light", "D. Drive onto the pavement"],
     correct: "B", difficulty: "hard",
-    explanation: "You must not break traffic laws to make way for emergency vehicles — you could cause an accident. Wait for the light to change, then move out of the way safely. If there is no safe option, stay where you are.",
+    explanation: "You must not break traffic laws to make way for emergency vehicles - you could cause an accident. Wait for the light to change, then move out of the way safely. If there is no safe option, stay where you are.",
     hcRule: "Rule 219", imageUrl: null
   },
   {
@@ -878,7 +878,7 @@ const QUESTIONS = [
   {
     id: "Q107", category: "other-types-of-vehicle", subcategory: "buses",
     question: "A school bus is stopped with flashing amber lights. What does this mean?",
-    options: ["A. The bus is broken down", "B. Children are getting on or off — be prepared to stop", "C. The bus is about to pull out", "D. The bus driver needs assistance"],
+    options: ["A. The bus is broken down", "B. Children are getting on or off - be prepared to stop", "C. The bus is about to pull out", "D. The bus driver needs assistance"],
     correct: "B", difficulty: "medium",
     explanation: "Flashing amber lights on a school bus indicate children may be crossing the road. Be prepared to stop and wait until all children are safely across and the lights stop flashing.",
     hcRule: "Rule 220", imageUrl: null
@@ -894,9 +894,9 @@ const QUESTIONS = [
   {
     id: "Q109", category: "other-types-of-vehicle", subcategory: "emergency-vehicles",
     question: "An emergency vehicle's blue flashing lights are visible but you cannot hear a siren. What should you do?",
-    options: ["A. Do nothing — no siren means they are not on an emergency call", "B. Still give way — the siren may be inaudible due to your vehicle noise or distance", "C. Flash your lights back at them", "D. Slow down and wait for them to pass you"],
+    options: ["A. Do nothing - no siren means they are not on an emergency call", "B. Still give way - the siren may be inaudible due to your vehicle noise or distance", "C. Flash your lights back at them", "D. Slow down and wait for them to pass you"],
     correct: "B", difficulty: "medium",
-    explanation: "Emergency vehicles may run with lights but not always sirens, or the siren may not be audible inside your vehicle. Blue lights alone mean an emergency vehicle — give way.",
+    explanation: "Emergency vehicles may run with lights but not always sirens, or the siren may not be audible inside your vehicle. Blue lights alone mean an emergency vehicle - give way.",
     hcRule: "Rule 219", imageUrl: null
   },
   {
@@ -904,13 +904,13 @@ const QUESTIONS = [
     question: "Why does a large lorry take longer to stop than a car travelling at the same speed?",
     options: ["A. Lorries have larger engines", "B. The greater mass means much greater kinetic energy that must be dissipated by braking", "C. Lorry brakes are always older", "D. Air brakes are less effective than disc brakes"],
     correct: "B", difficulty: "medium",
-    explanation: "Kinetic energy increases with mass. A fully laden lorry may weigh 25-40 tonnes compared to a car's 1-2 tonnes, meaning much more energy must be absorbed to stop — resulting in longer stopping distances.",
+    explanation: "Kinetic energy increases with mass. A fully laden lorry may weigh 25-40 tonnes compared to a car's 1-2 tonnes, meaning much more energy must be absorbed to stop - resulting in longer stopping distances.",
     hcRule: "Rule 126", imageUrl: null
   },
   {
     id: "Q111", category: "other-types-of-vehicle", subcategory: "buses",
     question: "What should you do when you see a bus pulling away from a stop on the opposite side of the road?",
-    options: ["A. Nothing — it is on the opposite side", "B. Be alert — passengers may cross the road from behind the bus", "C. Speed up before passengers cross", "D. Sound your horn to warn pedestrians"],
+    options: ["A. Nothing - it is on the opposite side", "B. Be alert - passengers may cross the road from behind the bus", "C. Speed up before passengers cross", "D. Sound your horn to warn pedestrians"],
     correct: "B", difficulty: "medium",
     explanation: "Passengers crossing from behind a bus on the opposite carriageway may not be visible until they step into your path. Slow down and be ready to stop.",
     hcRule: "Rule 206", imageUrl: null
@@ -918,17 +918,17 @@ const QUESTIONS = [
   {
     id: "Q112", category: "other-types-of-vehicle", subcategory: "emergency-vehicles",
     question: "A fire engine behind you is using lights and sirens. You are approaching a narrow bridge. What should you do?",
-    options: ["A. Stop just before the bridge and let it pass", "B. Cross the bridge as quickly as possible, then pull over", "C. Reverse so the fire engine can use the bridge", "D. Continue — there is not enough room to pull over"],
+    options: ["A. Stop just before the bridge and let it pass", "B. Cross the bridge as quickly as possible, then pull over", "C. Reverse so the fire engine can use the bridge", "D. Continue - there is not enough room to pull over"],
     correct: "B", difficulty: "hard",
-    explanation: "If pulling over before the bridge is not safe, cross first then pull over. The emergency vehicle may follow you over the bridge or use another route. Safety first — never reverse on a main road unnecessarily.",
+    explanation: "If pulling over before the bridge is not safe, cross first then pull over. The emergency vehicle may follow you over the bridge or use another route. Safety first - never reverse on a main road unnecessarily.",
     hcRule: "Rule 219", imageUrl: null
   },
   {
     id: "Q113", category: "other-types-of-vehicle", subcategory: "large-vehicles",
     question: "What does a 'vehicle width restriction' sign mean and which vehicles does it affect most?",
-    options: ["A. Only cars are restricted", "B. No vehicle wider than the stated width may pass — primarily affects large vehicles and lorries", "C. The road is closed to all traffic", "D. Only motorcycles may pass"],
+    options: ["A. Only cars are restricted", "B. No vehicle wider than the stated width may pass - primarily affects large vehicles and lorries", "C. The road is closed to all traffic", "D. Only motorcycles may pass"],
     correct: "B", difficulty: "medium",
-    explanation: "Width restriction signs show the maximum width allowed — stated in metres. Wide vehicles including lorries, vans with wing mirrors, and some cars towing wide trailers may be unable to proceed.",
+    explanation: "Width restriction signs show the maximum width allowed - stated in metres. Wide vehicles including lorries, vans with wing mirrors, and some cars towing wide trailers may be unable to proceed.",
     hcRule: "Rule 248", imageUrl: null
   },
   {
@@ -942,9 +942,9 @@ const QUESTIONS = [
   {
     id: "Q115", category: "other-types-of-vehicle", subcategory: "emergency-vehicles",
     question: "A police car is following you with lights on but no siren. What should you do?",
-    options: ["A. Continue driving — the siren was not sounding", "B. Pull over and stop safely — the police are signalling you to stop", "C. Speed up and look for a safe place to stop several miles ahead", "D. Flash your hazard lights in acknowledgement and continue"],
+    options: ["A. Continue driving - the siren was not sounding", "B. Pull over and stop safely - the police are signalling you to stop", "C. Speed up and look for a safe place to stop several miles ahead", "D. Flash your hazard lights in acknowledgement and continue"],
     correct: "B", difficulty: "easy",
-    explanation: "If a police vehicle signals you to pull over — either by lights, siren, or a loudhailer — you must stop as soon as it is safe to do so. Failure to do so is a criminal offence.",
+    explanation: "If a police vehicle signals you to pull over - either by lights, siren, or a loudhailer - you must stop as soon as it is safe to do so. Failure to do so is a criminal offence.",
     hcRule: "Rule 219", imageUrl: null
   },
   {
@@ -968,7 +968,7 @@ const QUESTIONS = [
     question: "What does a 'high vehicle' warning sign at the entrance to a low bridge indicate?",
     options: ["A. The bridge has a weight limit", "B. Vehicles above the stated height must not pass", "C. The bridge is under repair", "D. Only emergency vehicles may use the bridge"],
     correct: "B", difficulty: "easy",
-    explanation: "Low bridge signs indicate a height restriction in metres and feet. Vehicles taller than this must NOT pass — striking a bridge causes serious damage and injury, and can disrupt rail services.",
+    explanation: "Low bridge signs indicate a height restriction in metres and feet. Vehicles taller than this must NOT pass - striking a bridge causes serious damage and injury, and can disrupt rail services.",
     hcRule: "Rule 248", imageUrl: null
   },
   {
@@ -976,13 +976,13 @@ const QUESTIONS = [
     question: "What colour beacon does a coastguard or mountain rescue vehicle use?",
     options: ["A. Blue", "B. Green", "C. Amber", "D. Red"],
     correct: "A", difficulty: "hard",
-    explanation: "Coastguard and mountain rescue vehicles use blue flashing beacons — the same as police, fire, and ambulance. Give way and treat them the same as other emergency vehicles.",
+    explanation: "Coastguard and mountain rescue vehicles use blue flashing beacons - the same as police, fire, and ambulance. Give way and treat them the same as other emergency vehicles.",
     hcRule: "Rule 219", imageUrl: null
   },
   {
     id: "Q120", category: "other-types-of-vehicle", subcategory: "large-vehicles",
     question: "You are behind a refuse collection lorry that is stopping frequently. What should you do?",
-    options: ["A. Overtake at every opportunity to avoid delays", "B. Allow extra space and be patient — they stop frequently and without much warning", "C. Use your horn to hurry them along", "D. Flash your lights to alert them you are behind"],
+    options: ["A. Overtake at every opportunity to avoid delays", "B. Allow extra space and be patient - they stop frequently and without much warning", "C. Use your horn to hurry them along", "D. Flash your lights to alert them you are behind"],
     correct: "B", difficulty: "easy",
     explanation: "Refuse lorries stop frequently, often without warning. Allow a larger following distance and be prepared for sudden stops. Overtake only when it is safe and legal to do so.",
     hcRule: "Rule 163", imageUrl: null
@@ -1010,7 +1010,7 @@ const QUESTIONS = [
   {
     id: "Q123", category: "vehicle-safety", subcategory: "brakes",
     question: "How should you check your brakes are working before driving?",
-    options: ["A. Press the brake pedal at low speed at the start of a journey and check it feels firm", "B. Rev the engine in neutral and apply brakes", "C. Drive at 30 mph and brake hard", "D. Brakes do not need to be checked — they are always working"],
+    options: ["A. Press the brake pedal at low speed at the start of a journey and check it feels firm", "B. Rev the engine in neutral and apply brakes", "C. Drive at 30 mph and brake hard", "D. Brakes do not need to be checked - they are always working"],
     correct: "A", difficulty: "easy",
     explanation: "Test your brakes at low speed at the start of any journey. The pedal should feel firm, not spongy or travel too far. Any concerns should be investigated by a mechanic immediately.",
     hcRule: "Rule 89", imageUrl: null
@@ -1036,7 +1036,7 @@ const QUESTIONS = [
     question: "When should you use rear fog lights?",
     options: ["A. Any time it is raining", "B. When visibility falls below 100 metres", "C. Whenever driving at night", "D. Whenever driving in built-up areas at night"],
     correct: "B", difficulty: "medium",
-    explanation: "Rear fog lights should be used only when visibility is seriously reduced — generally when you cannot see more than 100 metres. Using them unnecessarily can dazzle following drivers.",
+    explanation: "Rear fog lights should be used only when visibility is seriously reduced - generally when you cannot see more than 100 metres. Using them unnecessarily can dazzle following drivers.",
     hcRule: "Rule 226", imageUrl: null
   },
   {
@@ -1074,7 +1074,7 @@ const QUESTIONS = [
   {
     id: "Q131", category: "vehicle-safety", subcategory: "checks",
     question: "How often should you check your tyre pressure?",
-    options: ["A. Once a year at MOT time", "B. Regularly — at least once a month and before long journeys", "C. Only if a tyre looks flat", "D. Only after buying new tyres"],
+    options: ["A. Once a year at MOT time", "B. Regularly - at least once a month and before long journeys", "C. Only if a tyre looks flat", "D. Only after buying new tyres"],
     correct: "B", difficulty: "easy",
     explanation: "Tyre pressure should be checked at least monthly and before any long journey, using an accurate gauge when the tyres are cold. Refer to the vehicle manual for correct pressures.",
     hcRule: "Rule 89", imageUrl: null
@@ -1090,7 +1090,7 @@ const QUESTIONS = [
   {
     id: "Q133", category: "vehicle-safety", subcategory: "tyres",
     question: "What does a tyre sidewall bulge indicate?",
-    options: ["A. Normal wear pattern", "B. Internal structural damage — the tyre could fail at any time and must be replaced immediately", "C. The tyre is over-inflated", "D. The tyre is suitable for fitting a tube"],
+    options: ["A. Normal wear pattern", "B. Internal structural damage - the tyre could fail at any time and must be replaced immediately", "C. The tyre is over-inflated", "D. The tyre is suitable for fitting a tube"],
     correct: "B", difficulty: "medium",
     explanation: "A bulge in the sidewall indicates internal structural damage, usually from a kerb strike or pothole. The tyre can fail catastrophically at speed. Stop driving and replace the tyre.",
     hcRule: "Rule 89", imageUrl: null
@@ -1098,7 +1098,7 @@ const QUESTIONS = [
   {
     id: "Q134", category: "vehicle-safety", subcategory: "lights",
     question: "What does a red warning triangle placed on the road behind a broken-down vehicle indicate to approaching drivers?",
-    options: ["A. Road works ahead", "B. A vehicle ahead has broken down — slow down and be prepared to pass with care", "C. Turn around — road is closed", "D. Emergency stop area"],
+    options: ["A. Road works ahead", "B. A vehicle ahead has broken down - slow down and be prepared to pass with care", "C. Turn around - road is closed", "D. Emergency stop area"],
     correct: "B", difficulty: "easy",
     explanation: "A warning triangle placed at least 45m behind a broken-down vehicle (further on a motorway if used) warns approaching traffic. Slow down and pass carefully.",
     hcRule: "Rule 274", imageUrl: null
@@ -1114,7 +1114,7 @@ const QUESTIONS = [
   {
     id: "Q136", category: "vehicle-safety", subcategory: "tyres",
     question: "Can you legally drive on a spare 'space-saver' tyre at 70 mph?",
-    options: ["A. Yes, it is identical to a standard tyre", "B. No — space-saver tyres have a maximum speed limit, typically 50 mph", "C. Yes, but only on motorways", "D. No — spare tyres are illegal on public roads"],
+    options: ["A. Yes, it is identical to a standard tyre", "B. No - space-saver tyres have a maximum speed limit, typically 50 mph", "C. Yes, but only on motorways", "D. No - spare tyres are illegal on public roads"],
     correct: "B", difficulty: "medium",
     explanation: "Space-saver (temporary) spare tyres are not designed for extended use and carry a maximum speed limit, usually marked on the tyre. Typically 50 mph. Replace with a full tyre as soon as possible.",
     hcRule: "Rule 89", imageUrl: null
@@ -1138,7 +1138,7 @@ const QUESTIONS = [
   {
     id: "Q139", category: "vehicle-safety", subcategory: "brakes",
     question: "Your vehicle pulls to one side when you brake. What could this indicate?",
-    options: ["A. The road is cambered — it is normal", "B. A brake fault on one side, uneven tyre pressure, or a worn suspension component", "C. Fuel is running low", "D. You need to change gears"],
+    options: ["A. The road is cambered - it is normal", "B. A brake fault on one side, uneven tyre pressure, or a worn suspension component", "C. Fuel is running low", "D. You need to change gears"],
     correct: "B", difficulty: "medium",
     explanation: "A vehicle that pulls to one side when braking may have a seized brake caliper, uneven tyre pressure, or worn suspension. This is a safety issue that requires mechanical inspection.",
     hcRule: "Rule 89", imageUrl: null
@@ -1190,7 +1190,7 @@ const QUESTIONS = [
   {
     id: "Q145", category: "safety-first", subcategory: "seat-belts",
     question: "Is there an exemption from wearing a seat belt for delivery drivers making frequent stops?",
-    options: ["A. No — all drivers must wear a seat belt at all times", "B. Yes — drivers who make frequent stops during a local delivery round can be exempt", "C. Yes — but only on roads with a 20 mph limit", "D. Yes — but only in a vehicle under 3.5 tonnes"],
+    options: ["A. No - all drivers must wear a seat belt at all times", "B. Yes - drivers who make frequent stops during a local delivery round can be exempt", "C. Yes - but only on roads with a 20 mph limit", "D. Yes - but only in a vehicle under 3.5 tonnes"],
     correct: "B", difficulty: "hard",
     explanation: "Drivers making deliveries or collections frequently during a journey of less than 50 metres at a time may be exempt from wearing a seat belt during that local delivery work. This is a specific legal exemption.",
     hcRule: "Rule 100", imageUrl: null
@@ -1206,7 +1206,7 @@ const QUESTIONS = [
   {
     id: "Q147", category: "safety-first", subcategory: "seat-belts",
     question: "What should you check about your seat belt before each journey?",
-    options: ["A. That it is the same colour as the interior", "B. That it clicks securely, the strap is not frayed, and the recoil mechanism works", "C. That it matches the current MOT certificate", "D. Nothing — seat belts do not require regular checks"],
+    options: ["A. That it is the same colour as the interior", "B. That it clicks securely, the strap is not frayed, and the recoil mechanism works", "C. That it matches the current MOT certificate", "D. Nothing - seat belts do not require regular checks"],
     correct: "B", difficulty: "easy",
     explanation: "Inspect your seat belt for damage: check the latch clicks firmly, the strap recoils properly, and the webbing is not frayed or cut. A faulty seat belt may not protect you in an accident.",
     hcRule: "Rule 97", imageUrl: null
@@ -1214,7 +1214,7 @@ const QUESTIONS = [
   {
     id: "Q148", category: "safety-first", subcategory: "child-seats",
     question: "When can a child travel without a child car seat in a taxi?",
-    options: ["A. Never — taxis must always have child seats", "B. If no child seat is available — the child must then sit in the rear and can wear an adult belt if over 3", "C. Children under 3 may travel without restraint in a taxi's rear seat", "D. Children are always exempt in taxis"],
+    options: ["A. Never - taxis must always have child seats", "B. If no child seat is available - the child must then sit in the rear and can wear an adult belt if over 3", "C. Children under 3 may travel without restraint in a taxi's rear seat", "D. Children are always exempt in taxis"],
     correct: "B", difficulty: "hard",
     explanation: "In licensed taxis without a child seat available, children aged 3+ can travel in the rear wearing an adult belt if available. Children under 3 can travel without restraint in the rear. This is a specific taxi exemption.",
     hcRule: "Rule 102", imageUrl: null
@@ -1232,13 +1232,13 @@ const QUESTIONS = [
     question: "A passenger in your car refuses to wear their seat belt. They are an adult. Who receives the penalty if caught?",
     options: ["A. The driver", "B. The passenger", "C. Both driver and passenger equally", "D. The vehicle owner"],
     correct: "B", difficulty: "medium",
-    explanation: "Adults (14+) are responsible for wearing their own seat belt. If they refuse, they face the fixed penalty — not the driver. However, the driver is responsible for under-14s.",
+    explanation: "Adults (14+) are responsible for wearing their own seat belt. If they refuse, they face the fixed penalty - not the driver. However, the driver is responsible for under-14s.",
     hcRule: "Rule 100", imageUrl: null
   },
   {
     id: "Q151", category: "safety-first", subcategory: "airbags",
     question: "Can an airbag cause injury?",
-    options: ["A. No — airbags are completely safe", "B. Yes — they deploy with great force and can injure occupants who are too close or out of position", "C. Only if they malfunction", "D. Only to rear passengers"],
+    options: ["A. No - airbags are completely safe", "B. Yes - they deploy with great force and can injure occupants who are too close or out of position", "C. Only if they malfunction", "D. Only to rear passengers"],
     correct: "B", difficulty: "medium",
     explanation: "Airbags deploy explosively in milliseconds. Sitting too close, or being out of position, can result in injuries from the bag itself. Always wear a seat belt and maintain correct seating position.",
     hcRule: "Rule 97", imageUrl: null
@@ -1254,7 +1254,7 @@ const QUESTIONS = [
   {
     id: "Q153", category: "safety-first", subcategory: "seat-belts",
     question: "Is it legal to wear a seat belt across the body but under the arm (armpit) rather than across the chest?",
-    options: ["A. Yes — any method of wearing the belt is legal", "B. No — this does not protect the upper body and is a misuse of the belt", "C. Yes — this is recommended for pregnant women", "D. Yes — if the vehicle is over 10 years old"],
+    options: ["A. Yes - any method of wearing the belt is legal", "B. No - this does not protect the upper body and is a misuse of the belt", "C. Yes - this is recommended for pregnant women", "D. Yes - if the vehicle is over 10 years old"],
     correct: "B", difficulty: "medium",
     explanation: "Wearing the shoulder belt under the arm does not protect the chest and ribs and can cause serious abdominal injuries. Seat belts must be worn across the chest and lap as designed.",
     hcRule: "Rule 100", imageUrl: null
@@ -1270,7 +1270,7 @@ const QUESTIONS = [
   {
     id: "Q155", category: "safety-first", subcategory: "seat-belts",
     question: "You are pregnant. Should you wear a seat belt?",
-    options: ["A. No — seat belts are dangerous during pregnancy", "B. Yes — the lap belt across the thighs and shoulder belt over the collarbone, NOT over the bump", "C. Yes — with the lap belt across the bump", "D. Only in the first trimester"],
+    options: ["A. No - seat belts are dangerous during pregnancy", "B. Yes - the lap belt across the thighs and shoulder belt over the collarbone, NOT over the bump", "C. Yes - with the lap belt across the bump", "D. Only in the first trimester"],
     correct: "B", difficulty: "medium",
     explanation: "Pregnant women must wear seat belts with the lap portion under the bump across the top of the thighs, and the shoulder portion between the breasts. Never place the lap belt over the bump.",
     hcRule: "Rule 100", imageUrl: null
@@ -1278,7 +1278,7 @@ const QUESTIONS = [
   {
     id: "Q156", category: "safety-first", subcategory: "airbags",
     question: "When replacing a steering wheel that has an airbag, what should you always do?",
-    options: ["A. Disconnect the airbag system first — accidental deployment is dangerous", "B. Keep the airbag connected so it stays active during fitting", "C. Leave the engine running to power the airbag", "D. Nothing special is required"],
+    options: ["A. Disconnect the airbag system first - accidental deployment is dangerous", "B. Keep the airbag connected so it stays active during fitting", "C. Leave the engine running to power the airbag", "D. Nothing special is required"],
     correct: "A", difficulty: "hard",
     explanation: "Airbag systems must always be disabled (via the battery or system fuse) before working on the steering wheel. An accidental deployment can cause serious injury to anyone nearby.",
     hcRule: "Rule 97", imageUrl: null
@@ -1302,7 +1302,7 @@ const QUESTIONS = [
   {
     id: "Q159", category: "safety-first", subcategory: "airbags",
     question: "Does the presence of airbags mean you do not need to wear a seat belt?",
-    options: ["A. Yes — modern airbags replace seat belts", "B. No — airbags are supplementary restraints; they work WITH seat belts, not instead of them", "C. Only if there are front and side airbags", "D. Only at speeds below 40 mph"],
+    options: ["A. Yes - modern airbags replace seat belts", "B. No - airbags are supplementary restraints; they work WITH seat belts, not instead of them", "C. Only if there are front and side airbags", "D. Only at speeds below 40 mph"],
     correct: "B", difficulty: "easy",
     explanation: "Airbags are Supplemental Restraint Systems (SRS) designed to work with seat belts. Without a seat belt, an inflating airbag can cause fatal injuries. Always wear your seat belt.",
     hcRule: "Rule 97", imageUrl: null
@@ -1346,7 +1346,7 @@ const QUESTIONS = [
   {
     id: "Q164", category: "rules-of-the-road", subcategory: "junctions",
     question: "At a T-junction with no markings, who has priority?",
-    options: ["A. The driver turning right always has priority", "B. Vehicles on the major road have priority over those emerging from the minor road", "C. The first car to arrive has priority", "D. All vehicles have equal priority — negotiate between yourselves"],
+    options: ["A. The driver turning right always has priority", "B. Vehicles on the major road have priority over those emerging from the minor road", "C. The first car to arrive has priority", "D. All vehicles have equal priority - negotiate between yourselves"],
     correct: "B", difficulty: "medium",
     explanation: "At an unmarked T-junction, the vehicle on the continuing road (major road) generally has priority over those joining it from the minor road. Always give way to traffic on the road you are joining.",
     hcRule: "Rule 172", imageUrl: null
@@ -1364,7 +1364,7 @@ const QUESTIONS = [
     question: "What is 'lane hogging' on a motorway?",
     options: ["A. Driving in the left lane at all times", "B. Driving continuously in the middle or right lane without overtaking", "C. Overtaking other vehicles repeatedly", "D. Driving below the national speed limit"],
     correct: "B", difficulty: "easy",
-    explanation: "Lane hogging — staying in the middle or right lane when the left lane is clear — is illegal and can attract a fixed penalty. Always move back to the left after overtaking.",
+    explanation: "Lane hogging - staying in the middle or right lane when the left lane is clear - is illegal and can attract a fixed penalty. Always move back to the left after overtaking.",
     hcRule: "Rule 264", imageUrl: null
   },
   {
@@ -1372,7 +1372,7 @@ const QUESTIONS = [
     question: "What is the default speed limit in a built-up area with street lighting?",
     options: ["A. 20 mph", "B. 30 mph", "C. 40 mph", "D. 50 mph"],
     correct: "B", difficulty: "easy",
-    explanation: "In built-up areas with street lighting (lamp posts less than 200 metres apart), the default speed limit is 30 mph unless otherwise signed. Many areas now have 20 mph zones — always look for signs.",
+    explanation: "In built-up areas with street lighting (lamp posts less than 200 metres apart), the default speed limit is 30 mph unless otherwise signed. Many areas now have 20 mph zones - always look for signs.",
     hcRule: "Rule 124", imageUrl: null
   },
   {
@@ -1396,7 +1396,7 @@ const QUESTIONS = [
     question: "What does a solid white line along the centre of a road mean?",
     options: ["A. You may overtake if safe", "B. You must not cross or straddle the line", "C. A lane for cyclists only", "D. A pedestrian crossing area"],
     correct: "B", difficulty: "easy",
-    explanation: "A solid white centre line means you must not cross or straddle it. It is used where overtaking is dangerous — typically on bends, hills, or near junctions. A hazard warning line (long dashes) means do not cross unless safe.",
+    explanation: "A solid white centre line means you must not cross or straddle it. It is used where overtaking is dangerous - typically on bends, hills, or near junctions. A hazard warning line (long dashes) means do not cross unless safe.",
     hcRule: "Rule 128", imageUrl: null
   },
   {
@@ -1410,7 +1410,7 @@ const QUESTIONS = [
   {
     id: "Q172", category: "rules-of-the-road", subcategory: "speed-limits",
     question: "What speed limit applies to a car on a motorway during a 'smart motorway' variable speed limit display showing '50'?",
-    options: ["A. 50 mph is advisory only", "B. 50 mph is the mandatory maximum and enforced by cameras", "C. 60 mph is still the limit — 50 is a suggestion", "D. Only heavy vehicles are restricted to 50"],
+    options: ["A. 50 mph is advisory only", "B. 50 mph is the mandatory maximum and enforced by cameras", "C. 60 mph is still the limit - 50 is a suggestion", "D. Only heavy vehicles are restricted to 50"],
     correct: "B", difficulty: "medium",
     explanation: "Variable speed limits displayed on smart motorway gantries are mandatory when displayed on a red-ringed sign. They are enforced by average speed cameras. Treat them the same as any fixed speed limit.",
     hcRule: "Rule 262", imageUrl: null
@@ -1418,7 +1418,7 @@ const QUESTIONS = [
   {
     id: "Q173", category: "rules-of-the-road", subcategory: "lane-discipline",
     question: "You are travelling on a dual carriageway and see a vehicle travelling the wrong way towards you in your lane. What should you do?",
-    options: ["A. Flash your lights and sound horn, then pull onto the verge if necessary", "B. Stop in your lane and wait for them to swerve", "C. Continue at speed — they will move", "D. Accelerate and overtake them on the left"],
+    options: ["A. Flash your lights and sound horn, then pull onto the verge if necessary", "B. Stop in your lane and wait for them to swerve", "C. Continue at speed - they will move", "D. Accelerate and overtake them on the left"],
     correct: "A", difficulty: "hard",
     explanation: "A wrong-way driver is an extreme emergency. Flash, sound horn to warn them, and if a collision is imminent, steer to the left onto the hard shoulder or verge. Never stop in the carriageway.",
     hcRule: "Rule 263", imageUrl: null
@@ -1434,7 +1434,7 @@ const QUESTIONS = [
   {
     id: "Q175", category: "rules-of-the-road", subcategory: "junctions",
     question: "You are turning right from a major road into a minor road. What should you do if an oncoming vehicle is also turning right?",
-    options: ["A. You have priority — proceed first", "B. Normally pass offside-to-offside (right side to right side) if the road layout allows it", "C. Stop and wait for the other vehicle to complete its turn", "D. Both vehicles should proceed simultaneously"],
+    options: ["A. You have priority - proceed first", "B. Normally pass offside-to-offside (right side to right side) if the road layout allows it", "C. Stop and wait for the other vehicle to complete its turn", "D. Both vehicles should proceed simultaneously"],
     correct: "B", difficulty: "hard",
     explanation: "When two vehicles are both turning right, the safest method is offside-to-offside (passing each other driver's side to driver's side). This allows both drivers to see oncoming traffic. Follow road markings where they indicate otherwise.",
     hcRule: "Rule 179", imageUrl: null
@@ -1460,13 +1460,13 @@ const QUESTIONS = [
     question: "When emerging from a side road at a T-junction with a give way line, when can you safely enter the major road?",
     options: ["A. When the major road appears clear at a distance", "B. When there is a gap in traffic that is clearly sufficient to complete your manoeuvre safely", "C. When a vehicle on the major road slows down", "D. When another car in the side road toots their horn"],
     correct: "B", difficulty: "easy",
-    explanation: "You must be certain there is a safe gap large enough for your complete manoeuvre before emerging. Do not rely on vehicles slowing — they may not. Never emerge on hope.",
+    explanation: "You must be certain there is a safe gap large enough for your complete manoeuvre before emerging. Do not rely on vehicles slowing - they may not. Never emerge on hope.",
     hcRule: "Rule 172", imageUrl: null
   },
   {
     id: "Q179", category: "rules-of-the-road", subcategory: "roundabouts",
     question: "When going straight ahead at a roundabout, which lane should you normally use?",
-    options: ["A. Left lane", "B. Right lane", "C. Middle lane on wide roundabouts", "D. Either — there is no rule"],
+    options: ["A. Left lane", "B. Right lane", "C. Middle lane on wide roundabouts", "D. Either - there is no rule"],
     correct: "A", difficulty: "medium",
     explanation: "Unless signs or markings indicate otherwise, use the left lane when going straight ahead. Signal left as you pass the exit before yours to indicate you are leaving. Check right mirror before moving left.",
     hcRule: "Rule 186", imageUrl: null
@@ -1474,7 +1474,7 @@ const QUESTIONS = [
   {
     id: "Q180", category: "rules-of-the-road", subcategory: "speed-limits",
     question: "You are driving on a road where the speed limit is 30 mph and you regularly drive at 35 mph. What risk does this present?",
-    options: ["A. No risk — 35 mph is close enough", "B. You risk a fixed penalty notice, penalty points, and increased stopping distance puts pedestrians at greater risk", "C. Only a risk during school hours", "D. Risk only if wet roads are present"],
+    options: ["A. No risk - 35 mph is close enough", "B. You risk a fixed penalty notice, penalty points, and increased stopping distance puts pedestrians at greater risk", "C. Only a risk during school hours", "D. Risk only if wet roads are present"],
     correct: "B", difficulty: "easy",
     explanation: "Even slightly exceeding the speed limit is illegal and increases stopping distances. In a 30 mph zone, even a few mph extra dramatically reduces reaction time to protect pedestrians.",
     hcRule: "Rule 124", imageUrl: null
@@ -1482,7 +1482,7 @@ const QUESTIONS = [
   {
     id: "Q181", category: "rules-of-the-road", subcategory: "lane-discipline",
     question: "What do diagonal white stripes (chevrons) on the road indicate?",
-    options: ["A. A cycle lane", "B. A separation area to divide lanes of traffic — you must not enter this area unless instructed by signs", "C. A bus lane", "D. A pedestrian crossing zone"],
+    options: ["A. A cycle lane", "B. A separation area to divide lanes of traffic - you must not enter this area unless instructed by signs", "C. A bus lane", "D. A pedestrian crossing zone"],
     correct: "B", difficulty: "medium",
     explanation: "Diagonal white stripes or chevrons mark separation areas used to protect traffic turning right or to separate opposing traffic. You must not enter a hatched area bounded by a solid white line.",
     hcRule: "Rule 130", imageUrl: null
@@ -1490,7 +1490,7 @@ const QUESTIONS = [
   {
     id: "Q182", category: "rules-of-the-road", subcategory: "junctions",
     question: "What does a flashing amber traffic light at a junction mean?",
-    options: ["A. Stop — red is about to show", "B. Give way to pedestrians on the crossing — you may proceed with caution if the crossing is clear", "C. All vehicles have right of way", "D. The traffic light system has failed — treat as a give way"],
+    options: ["A. Stop - red is about to show", "B. Give way to pedestrians on the crossing - you may proceed with caution if the crossing is clear", "C. All vehicles have right of way", "D. The traffic light system has failed - treat as a give way"],
     correct: "B", difficulty: "medium",
     explanation: "A flashing amber light at a pelican crossing means you may proceed only if the crossing is clear. Give way to any pedestrians still on the crossing.",
     hcRule: "Rule 196", imageUrl: null
@@ -1510,17 +1510,17 @@ const QUESTIONS = [
   {
     id: "Q184", category: "road-signs", subcategory: "mandatory-signs",
     question: "What do circular signs with a red border indicate?",
-    options: ["A. Information", "B. Prohibition or restriction — you must not do the thing shown", "C. Direction", "D. Warning"],
+    options: ["A. Information", "B. Prohibition or restriction - you must not do the thing shown", "C. Direction", "D. Warning"],
     correct: "B", difficulty: "easy",
-    explanation: "Circular signs with a red border are prohibitory signs — they tell you what you MUST NOT do (e.g., no entry, speed limit, no overtaking). They are mandatory.",
+    explanation: "Circular signs with a red border are prohibitory signs - they tell you what you MUST NOT do (e.g., no entry, speed limit, no overtaking). They are mandatory.",
     hcRule: "Rule 74", imageUrl: null
   },
   {
     id: "Q185", category: "road-signs", subcategory: "mandatory-signs",
     question: "What does a circular blue sign with a white arrow pointing upwards mean?",
-    options: ["A. Right of way for oncoming traffic", "B. One-way street — proceed ahead only", "C. Road narrows — keep left", "D. Motorway ahead"],
+    options: ["A. Right of way for oncoming traffic", "B. One-way street - proceed ahead only", "C. Road narrows - keep left", "D. Motorway ahead"],
     correct: "B", difficulty: "easy",
-    explanation: "Circular blue signs with white symbols give positive instructions — you MUST follow them. A white upward arrow means you must proceed in that direction (one-way ahead).",
+    explanation: "Circular blue signs with white symbols give positive instructions - you MUST follow them. A white upward arrow means you must proceed in that direction (one-way ahead).",
     hcRule: "Rule 74", imageUrl: null
   },
   {
@@ -1542,9 +1542,9 @@ const QUESTIONS = [
   {
     id: "Q188", category: "road-signs", subcategory: "warning-signs",
     question: "A triangular sign showing a silhouette of a child with a flag. What does this mean?",
-    options: ["A. Children's hospital ahead", "B. School crossing patrol ahead — be prepared to stop", "C. Playground on the right", "D. School zone speed camera"],
+    options: ["A. Children's hospital ahead", "B. School crossing patrol ahead - be prepared to stop", "C. Playground on the right", "D. School zone speed camera"],
     correct: "B", difficulty: "easy",
-    explanation: "This sign warns of a school crossing patrol (lollipop person) ahead. You must stop when the crossing patrol shows their stop sign — this is a legal requirement.",
+    explanation: "This sign warns of a school crossing patrol (lollipop person) ahead. You must stop when the crossing patrol shows their stop sign - this is a legal requirement.",
     hcRule: "Rule 195", imageUrl: null
   },
   {
@@ -1566,15 +1566,15 @@ const QUESTIONS = [
   {
     id: "Q191", category: "road-signs", subcategory: "information-signs",
     question: "What does a brown sign with a camera symbol indicate?",
-    options: ["A. CCTV surveillance area", "B. Scenic viewpoint — photography recommended", "C. Speed camera ahead", "D. A tourist attraction or place of historic interest"],
+    options: ["A. CCTV surveillance area", "B. Scenic viewpoint - photography recommended", "C. Speed camera ahead", "D. A tourist attraction or place of historic interest"],
     correct: "D", difficulty: "medium",
-    explanation: "Brown signs with white symbols indicate tourist attractions and places of interest — historic houses, museums, theme parks, country parks, etc.",
+    explanation: "Brown signs with white symbols indicate tourist attractions and places of interest - historic houses, museums, theme parks, country parks, etc.",
     hcRule: "Rule 74", imageUrl: null
   },
   {
     id: "Q192", category: "road-signs", subcategory: "warning-signs",
     question: "A triangular sign with a red border shows a train on a level crossing. What warning does it give?",
-    options: ["A. Speed camera ahead", "B. Level crossing with automatic half-barriers ahead", "C. Railway station ahead", "D. Train yard — no entry"],
+    options: ["A. Speed camera ahead", "B. Level crossing with automatic half-barriers ahead", "C. Railway station ahead", "D. Train yard - no entry"],
     correct: "B", difficulty: "medium",
     explanation: "A level crossing warning sign alerts you to an automatic half-barrier crossing ahead where trains may be passing. The variant showing a train without barriers indicates an unguarded crossing.",
     hcRule: "Rule 291", imageUrl: null
@@ -1590,7 +1590,7 @@ const QUESTIONS = [
   {
     id: "Q194", category: "road-signs", subcategory: "road-markings",
     question: "What do single yellow lines along the kerb mean?",
-    options: ["A. No parking at any time", "B. Restricted parking — times shown on nearby sign or plate", "C. Loading only at all times", "D. No stopping"],
+    options: ["A. No parking at any time", "B. Restricted parking - times shown on nearby sign or plate", "C. Loading only at all times", "D. No stopping"],
     correct: "B", difficulty: "medium",
     explanation: "A single yellow line means parking is restricted. The times of restriction are shown on a nearby sign or plate. Outside the restricted hours, parking may be permitted.",
     hcRule: "Rule 247", imageUrl: null
@@ -1600,7 +1600,7 @@ const QUESTIONS = [
     question: "A rectangular white sign with a black border and the text 'STOP 100 yds'. What does this mean?",
     options: ["A. You may stop here for 100 yards", "B. There is a STOP sign or junction 100 yards ahead", "C. Speed bump 100 yards ahead", "D. Speed camera 100 yards ahead"],
     correct: "B", difficulty: "medium",
-    explanation: "Distance warning signs — rectangular with black borders — tell you how far ahead a hazard or feature is. This sign warns of a STOP junction ahead, giving you time to prepare.",
+    explanation: "Distance warning signs - rectangular with black borders - tell you how far ahead a hazard or feature is. This sign warns of a STOP junction ahead, giving you time to prepare.",
     hcRule: "Rule 74", imageUrl: null
   },
   {
@@ -1624,7 +1624,7 @@ const QUESTIONS = [
     question: "What does a red circle with a white horizontal bar across it mean?",
     options: ["A. No vehicles over 7.5 tonnes", "B. No entry for vehicular traffic", "C. No overtaking", "D. No waiting"],
     correct: "B", difficulty: "easy",
-    explanation: "The 'no entry' sign — a red circle with a white horizontal bar — prohibits all vehicular traffic from entering that road. It is a one-way road entry from the wrong direction.",
+    explanation: "The 'no entry' sign - a red circle with a white horizontal bar - prohibits all vehicular traffic from entering that road. It is a one-way road entry from the wrong direction.",
     hcRule: "Rule 74", imageUrl: null
   },
   {
@@ -1640,23 +1640,23 @@ const QUESTIONS = [
     question: "A triangular sign shows a car skidding to the right with wavy lines beneath it. What does it warn of?",
     options: ["A. Slippery road surface ahead", "B. Speed humps ahead", "C. Gravel road ahead", "D. Flooding ahead"],
     correct: "A", difficulty: "easy",
-    explanation: "This warning sign indicates a risk of skidding — the road surface may be slippery due to ice, mud, water, or loose material. Reduce speed and drive smoothly.",
+    explanation: "This warning sign indicates a risk of skidding - the road surface may be slippery due to ice, mud, water, or loose material. Reduce speed and drive smoothly.",
     hcRule: "Rule 74", imageUrl: null
   },
   {
     id: "Q201", category: "road-signs", subcategory: "road-markings",
     question: "What does a 'box junction' (yellow hatched box) allow you to do that you might think is prohibited?",
-    options: ["A. Nothing — you must never enter it", "B. You may enter to turn right if you are only prevented from completing the turn by oncoming traffic or vehicles turning right", "C. You may enter if the left lane of your exit is clear", "D. You may wait for up to 30 seconds inside it"],
+    options: ["A. Nothing - you must never enter it", "B. You may enter to turn right if you are only prevented from completing the turn by oncoming traffic or vehicles turning right", "C. You may enter if the left lane of your exit is clear", "D. You may wait for up to 30 seconds inside it"],
     correct: "B", difficulty: "hard",
-    explanation: "You must not enter a yellow box junction unless your exit is clear. The exception is turning right — you may wait in the box for a gap in oncoming traffic, provided your exit is clear.",
+    explanation: "You must not enter a yellow box junction unless your exit is clear. The exception is turning right - you may wait in the box for a gap in oncoming traffic, provided your exit is clear.",
     hcRule: "Rule 174", imageUrl: null
   },
   {
     id: "Q202", category: "road-signs", subcategory: "mandatory-signs",
     question: "A blue circle with a white cycle symbol. What does it mean?",
-    options: ["A. No cycling allowed", "B. Cycle route — cyclists only", "C. Shared pedestrian and cycle route", "D. Cycle parking area"],
+    options: ["A. No cycling allowed", "B. Cycle route - cyclists only", "C. Shared pedestrian and cycle route", "D. Cycle parking area"],
     correct: "B", difficulty: "medium",
-    explanation: "A blue circular sign with a white cycle symbol indicates a route for cyclists only — vehicles are not permitted. A shared route sign (blue rectangle) shows both a walking and cycling symbol.",
+    explanation: "A blue circular sign with a white cycle symbol indicates a route for cyclists only - vehicles are not permitted. A shared route sign (blue rectangle) shows both a walking and cycling symbol.",
     hcRule: "Rule 140", imageUrl: null
   },
   {
@@ -1670,7 +1670,7 @@ const QUESTIONS = [
   {
     id: "Q204", category: "road-signs", subcategory: "warning-signs",
     question: "What does a triangular sign with a red border showing a car and motorbike side by side inside mean?",
-    options: ["A. Motorbike parking ahead", "B. End of no-overtaking zone", "C. Shared road for cars and motorcycles only", "D. Warning — risk of side winds"],
+    options: ["A. Motorbike parking ahead", "B. End of no-overtaking zone", "C. Shared road for cars and motorcycles only", "D. Warning - risk of side winds"],
     correct: "B", difficulty: "hard",
     explanation: "A triangular (warning) sign showing two vehicles side by side indicates the END of the no-overtaking restriction. Note: this is different from the circular no-overtaking prohibition sign.",
     hcRule: "Rule 74", imageUrl: null
@@ -1714,7 +1714,7 @@ const QUESTIONS = [
   {
     id: "Q209", category: "documents", subcategory: "insurance",
     question: "You lend your car to a friend. Whose insurance covers them driving it?",
-    options: ["A. Your insurance automatically", "B. It depends — only if your policy includes 'driving other cars' extension or the friend has their own policy that covers them driving other cars", "C. The friend's licence covers them in any car", "D. No insurance is needed for occasional loans"],
+    options: ["A. Your insurance automatically", "B. It depends - only if your policy includes 'driving other cars' extension or the friend has their own policy that covers them driving other cars", "C. The friend's licence covers them in any car", "D. No insurance is needed for occasional loans"],
     correct: "B", difficulty: "hard",
     explanation: "Just because you own the car does not mean your friend is covered. Check your policy. The friend needs to be a named driver on your policy, or they need a 'driving other cars' extension on their own policy.",
     hcRule: "Rule 143", imageUrl: null
@@ -1722,7 +1722,7 @@ const QUESTIONS = [
   {
     id: "Q210", category: "documents", subcategory: "mot",
     question: "Can you legally drive a vehicle with an expired MOT?",
-    options: ["A. Yes, for up to 30 days after expiry", "B. Only to a pre-booked MOT test centre", "C. Yes — MOT is only checked when you get a new insurance policy", "D. Yes, if the vehicle is under 5 years old"],
+    options: ["A. Yes, for up to 30 days after expiry", "B. Only to a pre-booked MOT test centre", "C. Yes - MOT is only checked when you get a new insurance policy", "D. Yes, if the vehicle is under 5 years old"],
     correct: "B", difficulty: "medium",
     explanation: "It is illegal to drive a vehicle with an expired MOT except when driving it to a pre-booked MOT appointment. You are also not covered by road tax without a valid MOT.",
     hcRule: "Rule 89", imageUrl: null
@@ -1730,7 +1730,7 @@ const QUESTIONS = [
   {
     id: "Q211", category: "documents", subcategory: "licence",
     question: "You receive 6 penalty points within 2 years of passing your test. What happens?",
-    options: ["A. Nothing — 12 points is the limit for everyone", "B. Your licence is automatically revoked and you must retake both theory and practical tests", "C. You receive a warning letter only", "D. Your licence is suspended for 6 months"],
+    options: ["A. Nothing - 12 points is the limit for everyone", "B. Your licence is automatically revoked and you must retake both theory and practical tests", "C. You receive a warning letter only", "D. Your licence is suspended for 6 months"],
     correct: "B", difficulty: "medium",
     explanation: "New drivers who accumulate 6 or more penalty points within 2 years of passing their first full test have their licence revoked. They must then reapply for a provisional and pass both tests again.",
     hcRule: "Rule 2", imageUrl: null
@@ -1746,7 +1746,7 @@ const QUESTIONS = [
   {
     id: "Q213", category: "documents", subcategory: "insurance",
     question: "What is a 'Certificate of Motor Insurance'?",
-    options: ["A. Your full policy document", "B. The document that proves your vehicle is insured — required to tax a vehicle", "C. Proof of no-claims discount", "D. The insurance company's registration document"],
+    options: ["A. Your full policy document", "B. The document that proves your vehicle is insured - required to tax a vehicle", "C. Proof of no-claims discount", "D. The insurance company's registration document"],
     correct: "B", difficulty: "medium",
     explanation: "A Certificate of Motor Insurance (or insurance certificate) is the legal proof that your vehicle is insured. It is required to tax a vehicle and may be requested at the roadside by police.",
     hcRule: "Rule 143", imageUrl: null
@@ -1770,7 +1770,7 @@ const QUESTIONS = [
   {
     id: "Q216", category: "documents", subcategory: "vehicle-registration",
     question: "If you change your address, who must you notify?",
-    options: ["A. Your insurance company only", "B. DVLA, your insurance company, and any relevant finance company", "C. Only your insurance company within 7 days", "D. No one — addresses do not need to be updated on documents"],
+    options: ["A. Your insurance company only", "B. DVLA, your insurance company, and any relevant finance company", "C. Only your insurance company within 7 days", "D. No one - addresses do not need to be updated on documents"],
     correct: "B", difficulty: "medium",
     explanation: "You must notify the DVLA (to update your licence and V5C), your insurance company (as address affects premium and coverage), and any finance company that holds interest in the vehicle.",
     hcRule: "Rule 144", imageUrl: null
@@ -1786,7 +1786,7 @@ const QUESTIONS = [
   {
     id: "Q218", category: "documents", subcategory: "licence",
     question: "What is the eyesight standard required to hold a UK driving licence?",
-    options: ["A. 20/20 vision uncorrected", "B. Ability to read a standard number plate at 20 metres (with glasses or contacts if worn)", "C. Passing an annual eye test", "D. No standard — eyesight is self-reported"],
+    options: ["A. 20/20 vision uncorrected", "B. Ability to read a standard number plate at 20 metres (with glasses or contacts if worn)", "C. Passing an annual eye test", "D. No standard - eyesight is self-reported"],
     correct: "B", difficulty: "easy",
     explanation: "You must be able to read a standard number plate (new format) at 20 metres. If you cannot do this without correction, you must wear glasses or contact lenses whenever driving.",
     hcRule: "Rule 92", imageUrl: null
@@ -1794,9 +1794,9 @@ const QUESTIONS = [
   {
     id: "Q219", category: "documents", subcategory: "mot",
     question: "Can a vehicle with an MOT 'advisory' item still legally be driven?",
-    options: ["A. No — all advisory items must be repaired before use", "B. Yes — advisories are not failures but should be monitored and repaired soon", "C. Only with a speed restriction sign on the vehicle", "D. Only if accompanied by a qualified mechanic"],
+    options: ["A. No - all advisory items must be repaired before use", "B. Yes - advisories are not failures but should be monitored and repaired soon", "C. Only with a speed restriction sign on the vehicle", "D. Only if accompanied by a qualified mechanic"],
     correct: "B", difficulty: "medium",
-    explanation: "Advisory items recorded during an MOT are not failures — the vehicle has passed. However, advisories indicate items approaching failure that should be monitored and repaired to maintain safety.",
+    explanation: "Advisory items recorded during an MOT are not failures - the vehicle has passed. However, advisories indicate items approaching failure that should be monitored and repaired to maintain safety.",
     hcRule: "Rule 89", imageUrl: null
   },
   {
@@ -1810,7 +1810,7 @@ const QUESTIONS = [
   {
     id: "Q221", category: "documents", subcategory: "vehicle-registration",
     question: "What does SORN mean?",
-    options: ["A. Standard Off Road Notification", "B. Statutory Off Road Notification — declared when you take a vehicle off the road and stop taxing it", "C. Safe Operations Road Notice", "D. Special Operator Road Network"],
+    options: ["A. Standard Off Road Notification", "B. Statutory Off Road Notification - declared when you take a vehicle off the road and stop taxing it", "C. Safe Operations Road Notice", "D. Special Operator Road Network"],
     correct: "B", difficulty: "medium",
     explanation: "A SORN (Statutory Off Road Notification) must be made if you are not taxing your vehicle and it is kept off the road. A vehicle with a SORN cannot legally be on a public road.",
     hcRule: "Rule 144", imageUrl: null
@@ -1826,9 +1826,9 @@ const QUESTIONS = [
   {
     id: "Q223", category: "documents", subcategory: "licence",
     question: "What must you do if your driving licence is lost or stolen?",
-    options: ["A. Nothing — you can continue driving without it", "B. Apply for a replacement from DVLA (online or by post) — driving is still legal if you are otherwise licensed", "C. Stop driving immediately until a new licence arrives", "D. Attend a police station to report it within 24 hours"],
+    options: ["A. Nothing - you can continue driving without it", "B. Apply for a replacement from DVLA (online or by post) - driving is still legal if you are otherwise licensed", "C. Stop driving immediately until a new licence arrives", "D. Attend a police station to report it within 24 hours"],
     correct: "B", difficulty: "medium",
-    explanation: "If your licence is lost or stolen, apply for a replacement from the DVLA. You can continue to drive legally as the entitlement exists — you just need to carry a replacement once received.",
+    explanation: "If your licence is lost or stolen, apply for a replacement from the DVLA. You can continue to drive legally as the entitlement exists - you just need to carry a replacement once received.",
     hcRule: "Rule 1", imageUrl: null
   },
   {
@@ -1894,7 +1894,7 @@ const QUESTIONS = [
   {
     id: "Q231", category: "accidents", subcategory: "reporting",
     question: "You hit a parked car and the owner is nowhere to be found. What should you do?",
-    options: ["A. Drive away — it was an accident", "B. Leave a note with your name and contact details, and report to police", "C. Take a photo and leave without leaving details", "D. Wait for at least one hour then drive away"],
+    options: ["A. Drive away - it was an accident", "B. Leave a note with your name and contact details, and report to police", "C. Take a photo and leave without leaving details", "D. Wait for at least one hour then drive away"],
     correct: "B", difficulty: "easy",
     explanation: "If you cannot find the other owner, leave a note with your name and contact details. You should also report the incident to a police station within 24 hours to cover your legal obligations.",
     hcRule: "Rule 286", imageUrl: null
@@ -1902,7 +1902,7 @@ const QUESTIONS = [
   {
     id: "Q232", category: "accidents", subcategory: "breakdowns",
     question: "You break down on a smart motorway without a hard shoulder. What should you do?",
-    options: ["A. Stop in any lane and put on hazard lights", "B. Try to reach an Emergency Refuge Area (ERA) — marked with blue signs with an orange SOS phone symbol", "C. Walk to the nearest junction", "D. Open your bonnet and wait"],
+    options: ["A. Stop in any lane and put on hazard lights", "B. Try to reach an Emergency Refuge Area (ERA) - marked with blue signs with an orange SOS phone symbol", "C. Walk to the nearest junction", "D. Open your bonnet and wait"],
     correct: "B", difficulty: "medium",
     explanation: "On smart motorways without hard shoulders, Emergency Refuge Areas (ERAs) are provided at regular intervals. Get to one as quickly as possible. If you cannot move, put on hazard lights and call 999.",
     hcRule: "Rule 277", imageUrl: null
@@ -1910,7 +1910,7 @@ const QUESTIONS = [
   {
     id: "Q233", category: "accidents", subcategory: "first-aid",
     question: "Someone's arm is trapped in a vehicle after an accident. Should you try to pull them free?",
-    options: ["A. Yes — get them out as quickly as possible", "B. Only if there is a fire risk", "C. No — unless there is immediate danger, wait for emergency services who have the right equipment", "D. Yes — with another person helping"],
+    options: ["A. Yes - get them out as quickly as possible", "B. Only if there is a fire risk", "C. No - unless there is immediate danger, wait for emergency services who have the right equipment", "D. Yes - with another person helping"],
     correct: "C", difficulty: "medium",
     explanation: "Moving someone with possible spinal injuries can cause permanent damage or death. Unless there is immediate danger (fire, etc.), keep them still and calm until emergency services arrive.",
     hcRule: "Rule 283", imageUrl: null
@@ -1942,7 +1942,7 @@ const QUESTIONS = [
   {
     id: "Q237", category: "accidents", subcategory: "first-aid",
     question: "A motorcyclist is injured and their helmet is on. Should you remove it?",
-    options: ["A. Always remove it to check for head injuries", "B. Only remove it if they are not breathing — otherwise leave it", "C. Always remove it if they are conscious", "D. Only remove it if the visor is cracked"],
+    options: ["A. Always remove it to check for head injuries", "B. Only remove it if they are not breathing - otherwise leave it", "C. Always remove it if they are conscious", "D. Only remove it if the visor is cracked"],
     correct: "B", difficulty: "hard",
     explanation: "Remove a motorcyclist's helmet only if they are not breathing and you need to perform CPR. The neck must be kept stable during removal. Otherwise, leave it on to avoid aggravating potential spinal injuries.",
     hcRule: "Rule 283", imageUrl: null
@@ -2000,7 +2000,7 @@ const QUESTIONS = [
     question: "If you see a petrol fire, which type of extinguisher should you NOT use?",
     options: ["A. Dry powder", "B. Foam", "C. Water", "D. CO2"],
     correct: "C", difficulty: "medium",
-    explanation: "Water must never be used on a petrol fire — it can spread the burning fuel and make the fire worse. Use foam, dry powder, or CO2 on fuel-based fires.",
+    explanation: "Water must never be used on a petrol fire - it can spread the burning fuel and make the fire worse. Use foam, dry powder, or CO2 on fuel-based fires.",
     hcRule: "Rule 283", imageUrl: null
   },
 
@@ -2020,7 +2020,7 @@ const QUESTIONS = [
     question: "What does a vehicle's 'gross vehicle weight' (GVW) mean?",
     options: ["A. The weight of the vehicle alone", "B. The maximum permitted total weight including vehicle, passengers, fuel, and load", "C. The weight of the vehicle when fully fuelled", "D. The engine weight only"],
     correct: "B", difficulty: "medium",
-    explanation: "GVW (or Gross Vehicle Weight Rating, GVWR) is the maximum total weight the vehicle is designed to carry — including itself, fuel, passengers, and any load. Exceeding it is illegal and dangerous.",
+    explanation: "GVW (or Gross Vehicle Weight Rating, GVWR) is the maximum total weight the vehicle is designed to carry - including itself, fuel, passengers, and any load. Exceeding it is illegal and dangerous.",
     hcRule: "Rule 98", imageUrl: null
   },
   {
@@ -2050,7 +2050,7 @@ const QUESTIONS = [
   {
     id: "Q250", category: "vehicle-loading", subcategory: "towing",
     question: "When towing a trailer, are you permitted to use the right-hand lane on a three-lane motorway?",
-    options: ["A. Yes, if you are overtaking", "B. Yes, at any time", "C. No — vehicles towing trailers are prohibited from the right-hand lane of a motorway with 3 or more lanes", "D. Only if the trailer is under 750 kg"],
+    options: ["A. Yes, if you are overtaking", "B. Yes, at any time", "C. No - vehicles towing trailers are prohibited from the right-hand lane of a motorway with 3 or more lanes", "D. Only if the trailer is under 750 kg"],
     correct: "C", difficulty: "medium",
     explanation: "Vehicles towing trailers may only use the left and middle lanes of a three-or-more-lane motorway. They are prohibited from the right-hand lane except in roadworks or where signed otherwise.",
     hcRule: "Rule 265", imageUrl: null
@@ -2058,7 +2058,7 @@ const QUESTIONS = [
   {
     id: "Q251", category: "vehicle-loading", subcategory: "carrying-loads",
     question: "How does an overloaded vehicle affect braking?",
-    options: ["A. No effect — brakes are designed for any load", "B. Braking distance increases as extra weight creates more momentum to be absorbed", "C. Braking improves as more weight keeps tyres on the road", "D. Only affects braking on wet roads"],
+    options: ["A. No effect - brakes are designed for any load", "B. Braking distance increases as extra weight creates more momentum to be absorbed", "C. Braking improves as more weight keeps tyres on the road", "D. Only affects braking on wet roads"],
     correct: "B", difficulty: "easy",
     explanation: "Excess weight increases kinetic energy, meaning brakes must work harder to stop the vehicle. Stopping distances increase significantly with an overloaded vehicle.",
     hcRule: "Rule 98", imageUrl: null
@@ -2090,7 +2090,7 @@ const QUESTIONS = [
   {
     id: "Q255", category: "vehicle-loading", subcategory: "carrying-loads",
     question: "When carrying a very long piece of timber that extends beyond your vehicle, when must you use a night-marker?",
-    options: ["A. Never — daytime flags are sufficient at all times", "B. When driving between sunset and sunrise — the end must carry a red light visible from behind", "C. Only on motorways", "D. Only when the load exceeds 3 metres"],
+    options: ["A. Never - daytime flags are sufficient at all times", "B. When driving between sunset and sunrise - the end must carry a red light visible from behind", "C. Only on motorways", "D. Only when the load exceeds 3 metres"],
     correct: "B", difficulty: "hard",
     explanation: "At night, any load projecting beyond your vehicle must carry a red light (or reflector) visible from behind. By day, a red/white flag or bright marker must be used on the projection.",
     hcRule: "Rule 98", imageUrl: null
@@ -2098,7 +2098,7 @@ const QUESTIONS = [
   {
     id: "Q256", category: "vehicle-loading", subcategory: "towing",
     question: "If a trailer becomes detached while you are driving, what should you do?",
-    options: ["A. Accelerate away to separate from it faster", "B. Stop safely and as quickly as possible, put hazard lights on, and retrieve the trailer", "C. Continue driving — the safety chain will hold it", "D. Reverse to reconnect the trailer"],
+    options: ["A. Accelerate away to separate from it faster", "B. Stop safely and as quickly as possible, put hazard lights on, and retrieve the trailer", "C. Continue driving - the safety chain will hold it", "D. Reverse to reconnect the trailer"],
     correct: "B", difficulty: "medium",
     explanation: "Stop safely and quickly. A detached trailer is an extreme road hazard. Put on hazard lights, warn other drivers, and secure the trailer. The safety chain is only a secondary backup, not a towing solution.",
     hcRule: "Rule 98", imageUrl: null
@@ -2122,7 +2122,7 @@ const QUESTIONS = [
   {
     id: "Q259", category: "vehicle-loading", subcategory: "carrying-loads",
     question: "You are moving house and loading a hired van. What precaution should you take before driving?",
-    options: ["A. Ensure you are comfortable with the extra height and length, secure all items, and check mirrors are correctly set for the van", "B. No precautions are needed — van hire includes full training", "C. Only load the van in daylight", "D. Reduce tyre pressure for heavy loads"],
+    options: ["A. Ensure you are comfortable with the extra height and length, secure all items, and check mirrors are correctly set for the van", "B. No precautions are needed - van hire includes full training", "C. Only load the van in daylight", "D. Reduce tyre pressure for heavy loads"],
     correct: "A", difficulty: "medium",
     explanation: "Driving a van for the first time requires adjustment: understand its height (risk of low bridges), length (turning and parking), and ensure all mirrors are correctly positioned. Secure all items to prevent movement.",
     hcRule: "Rule 98", imageUrl: null
@@ -2130,7 +2130,7 @@ const QUESTIONS = [
   {
     id: "Q260", category: "vehicle-loading", subcategory: "towing",
     question: "What category of licence do you need to tow a trailer with a Maximum Authorised Mass (MAM) exceeding 3,500 kg?",
-    options: ["A. A standard category B (car) licence", "B. Category BE", "C. Category C1E or CE depending on the towing vehicle", "D. No special category — any licence permits trailer towing"],
+    options: ["A. A standard category B (car) licence", "B. Category BE", "C. Category C1E or CE depending on the towing vehicle", "D. No special category - any licence permits trailer towing"],
     correct: "C", difficulty: "hard",
     explanation: "Category B (car) licence with the appropriate allowance permits towing up to certain limits. Heavy trailers require C1E (medium lorry and trailer) or CE (large lorry and trailer) entitlements.",
     hcRule: "Rule 38", imageUrl: null
@@ -2206,7 +2206,7 @@ const QUESTIONS = [
   {
     id: "Q269", category: "motorway-rules", subcategory: "smart-motorways",
     question: "What does a red X on a smart motorway gantry mean?",
-    options: ["A. Road works 500 metres ahead", "B. That lane is closed — do not proceed in that lane", "C. A speed camera is operating in that lane", "D. Heavy traffic in that lane"],
+    options: ["A. Road works 500 metres ahead", "B. That lane is closed - do not proceed in that lane", "C. A speed camera is operating in that lane", "D. Heavy traffic in that lane"],
     correct: "B", difficulty: "easy",
     explanation: "A red X on a smart motorway overhead gantry means the lane is closed. You must not proceed beyond the red X in that lane. Enforcement cameras may issue fines for ignoring a red X.",
     hcRule: "Rule 262", imageUrl: null
@@ -2222,7 +2222,7 @@ const QUESTIONS = [
   {
     id: "Q271", category: "motorway-rules", subcategory: "lanes",
     question: "Can you use the hard shoulder on a traditional motorway to overtake?",
-    options: ["A. Yes, if traffic is very heavy", "B. Yes, at off-peak times", "C. No — the hard shoulder is for emergencies only and must not be used for driving", "D. Yes, if indicated by overhead signs"],
+    options: ["A. Yes, if traffic is very heavy", "B. Yes, at off-peak times", "C. No - the hard shoulder is for emergencies only and must not be used for driving", "D. Yes, if indicated by overhead signs"],
     correct: "C", difficulty: "easy",
     explanation: "The hard shoulder of a traditional motorway is reserved for genuine emergencies and breakdowns. It must never be used for normal driving, overtaking, or as a shortcut to exits.",
     hcRule: "Rule 264", imageUrl: null
@@ -2278,7 +2278,7 @@ const QUESTIONS = [
   {
     id: "Q278", category: "motorway-rules", subcategory: "contraflow",
     question: "Why are speed limits typically reduced in motorway roadworks (contraflow) zones?",
-    options: ["A. To allow road workers time to clear the area", "B. Because lanes are narrower, barriers are closer, and road workers are present — reducing reaction time margins", "C. To prevent damage to road-laying machinery", "D. There is no legal requirement for reduced speed in roadworks"],
+    options: ["A. To allow road workers time to clear the area", "B. Because lanes are narrower, barriers are closer, and road workers are present - reducing reaction time margins", "C. To prevent damage to road-laying machinery", "D. There is no legal requirement for reduced speed in roadworks"],
     correct: "B", difficulty: "easy",
     explanation: "Roadwork zones have reduced speed limits because lanes are narrower, the central barrier is closer, and workers may be nearby. There is less margin for error at higher speeds.",
     hcRule: "Rule 288", imageUrl: null
@@ -2326,9 +2326,9 @@ const QUESTIONS = [
   {
     id: "Q284", category: "motorway-rules", subcategory: "lanes",
     question: "You have been travelling in the middle lane for some time. Traffic ahead clears and the left lane is empty. What should you do?",
-    options: ["A. Stay in the middle lane — it is more comfortable", "B. Move to the left lane as soon as it is safe", "C. Signal right and move further right", "D. There is no obligation to move left on motorways"],
+    options: ["A. Stay in the middle lane - it is more comfortable", "B. Move to the left lane as soon as it is safe", "C. Signal right and move further right", "D. There is no obligation to move left on motorways"],
     correct: "B", difficulty: "easy",
-    explanation: "You must move back to the left lane when it is safe and when there is no traffic to overtake. Staying in the middle lane unnecessarily is lane hogging — an endorsable offence.",
+    explanation: "You must move back to the left lane when it is safe and when there is no traffic to overtake. Staying in the middle lane unnecessarily is lane hogging - an endorsable offence.",
     hcRule: "Rule 264", imageUrl: null
   },
 
@@ -2354,7 +2354,7 @@ const QUESTIONS = [
   {
     id: "Q287", category: "environmental-issues", subcategory: "emissions",
     question: "What does 'idling' a vehicle mean and why should you avoid it?",
-    options: ["A. Driving slowly — unavoidable in traffic", "B. Running the engine when the vehicle is stationary — wastes fuel and produces unnecessary emissions", "C. Driving in too high a gear", "D. Leaving the air conditioning on while driving"],
+    options: ["A. Driving slowly - unavoidable in traffic", "B. Running the engine when the vehicle is stationary - wastes fuel and produces unnecessary emissions", "C. Driving in too high a gear", "D. Leaving the air conditioning on while driving"],
     correct: "B", difficulty: "easy",
     explanation: "Idling means leaving the engine running while stationary. It produces exhaust emissions for no purpose and wastes fuel. Switch off the engine if stationary for more than a minute or two.",
     hcRule: "Rule 123", imageUrl: null
@@ -2372,7 +2372,7 @@ const QUESTIONS = [
     question: "What does a DPF (Diesel Particulate Filter) do?",
     options: ["A. Reduces engine noise", "B. Removes soot and particulate matter from diesel exhaust gases", "C. Improves fuel injection efficiency", "D. Converts diesel exhaust to natural gas"],
     correct: "B", difficulty: "medium",
-    explanation: "A DPF captures soot and particulate matter from diesel exhaust. It requires periodic 'regeneration' — best achieved by driving at sustained motorway speeds to burn off accumulated soot.",
+    explanation: "A DPF captures soot and particulate matter from diesel exhaust. It requires periodic 'regeneration' - best achieved by driving at sustained motorway speeds to burn off accumulated soot.",
     hcRule: "Rule 123", imageUrl: null
   },
   {
@@ -2394,9 +2394,9 @@ const QUESTIONS = [
   {
     id: "Q292", category: "environmental-issues", subcategory: "fuel-efficiency",
     question: "What effect does carrying unnecessary weight in your vehicle have?",
-    options: ["A. Improves stability and fuel economy", "B. Increases fuel consumption — remove unnecessary items from the boot", "C. Has no effect on fuel consumption", "D. Reduces tyre wear"],
+    options: ["A. Improves stability and fuel economy", "B. Increases fuel consumption - remove unnecessary items from the boot", "C. Has no effect on fuel consumption", "D. Reduces tyre wear"],
     correct: "B", difficulty: "easy",
-    explanation: "Every 50 kg of excess weight increases fuel consumption by about 1-2%. Remove items you do not need for the journey — especially heavy items in the boot.",
+    explanation: "Every 50 kg of excess weight increases fuel consumption by about 1-2%. Remove items you do not need for the journey - especially heavy items in the boot.",
     hcRule: "Rule 123", imageUrl: null
   },
   {
@@ -2420,7 +2420,7 @@ const QUESTIONS = [
     question: "What is 'eco-driving'?",
     options: ["A. Driving exclusively on electric vehicles", "B. A style of driving that minimises fuel consumption and emissions through smooth, anticipatory driving", "C. Driving only in designated eco zones", "D. Using biofuels exclusively"],
     correct: "B", difficulty: "easy",
-    explanation: "Eco-driving involves smooth acceleration, anticipating traffic to reduce braking, maintaining steady speeds, and switching off the engine when stationary — reducing fuel use and emissions.",
+    explanation: "Eco-driving involves smooth acceleration, anticipating traffic to reduce braking, maintaining steady speeds, and switching off the engine when stationary - reducing fuel use and emissions.",
     hcRule: "Rule 123", imageUrl: null
   },
   {
@@ -2442,7 +2442,7 @@ const QUESTIONS = [
   {
     id: "Q298", category: "environmental-issues", subcategory: "fuel-efficiency",
     question: "How does anticipating traffic lights improve fuel economy?",
-    options: ["A. It does not — braking patterns do not affect fuel use", "B. Easing off the accelerator early lets the engine brake, saving fuel compared to hard braking then re-accelerating", "C. Anticipating lights allows you to use lower gears more often", "D. It only helps diesel vehicles"],
+    options: ["A. It does not - braking patterns do not affect fuel use", "B. Easing off the accelerator early lets the engine brake, saving fuel compared to hard braking then re-accelerating", "C. Anticipating lights allows you to use lower gears more often", "D. It only helps diesel vehicles"],
     correct: "B", difficulty: "medium",
     explanation: "If you ease off the accelerator well before a red light, you use engine braking (coasting) which uses minimal fuel. Hard braking and then re-accelerating from zero wastes significantly more fuel.",
     hcRule: "Rule 123", imageUrl: null
@@ -2466,9 +2466,9 @@ const QUESTIONS = [
   {
     id: "Q301", category: "environmental-issues", subcategory: "emissions",
     question: "What does it mean when a diesel engine produces black or dark grey smoke from the exhaust?",
-    options: ["A. The engine is warming up normally", "B. The engine is using premium diesel", "C. The engine is burning excess fuel or has a blocked DPF — an environmental and mechanical concern", "D. The vehicle needs an oil change"],
+    options: ["A. The engine is warming up normally", "B. The engine is using premium diesel", "C. The engine is burning excess fuel or has a blocked DPF - an environmental and mechanical concern", "D. The vehicle needs an oil change"],
     correct: "C", difficulty: "medium",
-    explanation: "Black or dark smoke from a diesel exhaust indicates incomplete combustion — excess fuel, a faulty injector, a blocked DPF, or a dirty air filter. It is an emission failure and should be investigated immediately.",
+    explanation: "Black or dark smoke from a diesel exhaust indicates incomplete combustion - excess fuel, a faulty injector, a blocked DPF, or a dirty air filter. It is an emission failure and should be investigated immediately.",
     hcRule: "Rule 89", imageUrl: null
   },
   {
@@ -2482,7 +2482,7 @@ const QUESTIONS = [
   {
     id: "Q303", category: "environmental-issues", subcategory: "emissions",
     question: "What does a car's Euro emission standard rating indicate?",
-    options: ["A. The country in which the car was manufactured", "B. The level of exhaust pollutants the vehicle produces — higher numbers (Euro 6) indicate cleaner engines", "C. The vehicle's fuel efficiency in mpg", "D. The age of the vehicle"],
+    options: ["A. The country in which the car was manufactured", "B. The level of exhaust pollutants the vehicle produces - higher numbers (Euro 6) indicate cleaner engines", "C. The vehicle's fuel efficiency in mpg", "D. The age of the vehicle"],
     correct: "B", difficulty: "medium",
     explanation: "Euro emission standards (Euro 1-6) set limits on exhaust pollutants. Euro 6 is the current standard for new cars, setting strict limits on NOx, carbon monoxide, hydrocarbons, and particulates.",
     hcRule: "Rule 123", imageUrl: null

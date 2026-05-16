@@ -1,4 +1,4 @@
-// PassMate UK — Quiz Logic
+// PassMate UK - Quiz Logic
 // Requires: questions.js, storage.js, analytics.js
 
 const CATEGORIES = [
@@ -260,10 +260,10 @@ function showAnswer(session, chosen, container) {
     const letter = btn.dataset.letter;
     if (letter === q.correct) {
       btn.classList.add('correct');
-      btn.setAttribute('aria-label', `${letter} — Correct answer`);
+      btn.setAttribute('aria-label', `${letter} - Correct answer`);
     } else if (letter === chosen && !isCorrect) {
       btn.classList.add('incorrect');
-      btn.setAttribute('aria-label', `${letter} — Incorrect`);
+      btn.setAttribute('aria-label', `${letter} - Incorrect`);
     }
   });
 
@@ -271,7 +271,7 @@ function showAnswer(session, chosen, container) {
   const panel = container.querySelector('#explanation-panel');
   const result = container.querySelector('#explanation-result');
   panel.classList.remove('hidden');
-  result.textContent = isCorrect ? '✅ Correct!' : `❌ Incorrect — the answer was ${q.correct}`;
+  result.textContent = isCorrect ? '✅ Correct!' : `❌ Incorrect - the answer was ${q.correct}`;
   result.className = 'explanation-result ' + (isCorrect ? 'correct' : 'incorrect');
 
   // Bookmark button

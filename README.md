@@ -1,21 +1,21 @@
-# PassMate UK — Free Theory Test Practice
+# PassMate UK - Free Theory Test Practice
 
-A free, offline-capable Progressive Web App for UK Car Theory Test preparation. Practice 304 original questions across all 15 DVSA topic categories — no sign-up, no payment, no nonsense.
+A free, offline-capable Progressive Web App for UK Car Theory Test preparation. Practice 304 original questions across all 15 DVSA topic categories - no sign-up, no payment, no nonsense.
 
 ## Features
 
 - **304 questions** across all 15 official DVSA categories (20–22 per topic)
-- **Mock test mode** — 50 random questions, 57-minute timer, 86% pass mark (mirrors real test)
-- **Category drill** — focus on specific topics
-- **Weak areas mode** — automatically targets your lowest-scoring categories
-- **Bookmarks** — save tricky questions and practice them as a dedicated set
-- **Instant feedback** — explanation + Highway Code rule reference after every answer
-- **Progress tracking** — per-category accuracy, streaks, session history (localStorage)
-- **Dark mode** — auto-detects system preference, manual toggle stored in localStorage
-- **Auto-advance** — optional 2-second auto-advance between questions
-- **Fully offline** — works without internet after first load (PWA + service worker)
-- **No backend, no account** — everything runs 100% client-side
-- **Open Trivia DB** — optional supplementary API questions for variety (degrades gracefully offline)
+- **Mock test mode** - 50 random questions, 57-minute timer, 86% pass mark (mirrors real test)
+- **Category drill** - focus on specific topics
+- **Weak areas mode** - automatically targets your lowest-scoring categories
+- **Bookmarks** - save tricky questions and practice them as a dedicated set
+- **Instant feedback** - explanation + Highway Code rule reference after every answer
+- **Progress tracking** - per-category accuracy, streaks, session history (localStorage)
+- **Dark mode** - auto-detects system preference, manual toggle stored in localStorage
+- **Auto-advance** - optional 2-second auto-advance between questions
+- **Fully offline** - works without internet after first load (PWA + service worker)
+- **No backend, no account** - everything runs 100% client-side
+- **Open Trivia DB** - optional supplementary API questions for variety (degrades gracefully offline)
 
 ## Screenshots
 
@@ -53,13 +53,13 @@ passmate-uk/
 
 ## Run Locally
 
-No build step required — just open the file:
+No build step required - just open the file:
 
 ```bash
 # Option 1: Open directly in browser
 open index.html
 
-# Option 2: Serve locally (recommended — avoids some browser file:// restrictions for SW)
+# Option 2: Serve locally (recommended - avoids some browser file:// restrictions for SW)
 npx serve .
 # Then visit http://localhost:3000
 ```
@@ -83,7 +83,7 @@ All 76 tests pass across three test files:
 1. Fork this repository
 2. Go to **Settings → Pages**
 3. Set source to **GitHub Actions**
-4. Push to `main` — the workflow in `.github/workflows/deploy.yml` runs tests then deploys automatically
+4. Push to `main` - the workflow in `.github/workflows/deploy.yml` runs tests then deploys automatically
 5. Your site will be live at `https://<your-username>.github.io/passmate-uk/`
 
 ## Question Categories
@@ -112,7 +112,7 @@ All 76 tests pass across three test files:
 Contributions welcome! To add or correct questions:
 
 1. Fork the repo
-2. Edit `data/questions.js` — follow the existing schema:
+2. Edit `data/questions.js` - follow the existing schema:
    ```js
    {
      id: "Q305",
@@ -127,7 +127,7 @@ Contributions welcome! To add or correct questions:
      imageUrl: null
    }
    ```
-3. Run `node run-tests.js` — all tests must pass
+3. Run `node run-tests.js` - all tests must pass
 4. Open a pull request
 
 ## Disclaimer
@@ -136,7 +136,7 @@ Contributions welcome! To add or correct questions:
 
 ## Licence
 
-MIT — free to use, modify, and distribute.
+MIT - free to use, modify, and distribute.
 
 ## Next Learning Enhancement
 

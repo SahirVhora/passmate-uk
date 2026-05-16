@@ -1,7 +1,7 @@
 {
   "name": "PassMate UK",
   "short_name": "PassMate",
-  "description": "Free UK Car Theory Test practice — 304 questions, offline-capable",
+  "description": "Free UK Car Theory Test practice - 304 questions, offline-capable",
   "start_url": "/passmate-uk/",
   "scope": "/passmate-uk/",
   "display": "standalone",

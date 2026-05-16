@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Your PassMate UK progress dashboard — overall stats, category breakdown, bookmarks, and session history.">
+  <meta name="description" content="Your PassMate UK progress dashboard - overall stats, category breakdown, bookmarks, and session history.">
   <meta name="theme-color" content="#0b1f3a">
-  <title>Progress Dashboard — PassMate UK</title>
+  <title>Progress Dashboard - PassMate UK</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="manifest" href="../manifest.json">
   <style>
@@ -243,7 +243,7 @@
             <td><a href="quiz.html?mode=category&category=${cat.slug}" style="color: var(--text); text-decoration: none;">${cat.icon} ${cat.label}</a></td>
             <td class="hide-mobile">${p.attempted}</td>
             <td>${p.correct || 0}</td>
-            <td class="font-bold ${acc === null ? 'text-muted' : acc >= 70 ? 'text-success' : 'text-error'}">${acc !== null ? acc + '%' : '—'}</td>
+            <td class="font-bold ${acc === null ? 'text-muted' : acc >= 70 ? 'text-success' : 'text-error'}">${acc !== null ? acc + '%' : ' - '}</td>
             <td>
               <div class="mini-bar-wrap">
                 <div class="mini-bar ${barClass}" style="width: ${acc || 0}%"></div>

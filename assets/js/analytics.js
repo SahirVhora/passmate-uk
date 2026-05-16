@@ -1,5 +1,5 @@
-// PassMate UK — Analytics Module
-// Lightweight in-browser analytics — no external services
+// PassMate UK - Analytics Module
+// Lightweight in-browser analytics - no external services
 
 // Relies on Storage module being loaded first
 // (loaded via <script> tags in HTML, Storage is global)

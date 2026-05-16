@@ -1,4 +1,4 @@
-// PassMate UK — Question Bank Tests
+// PassMate UK - Question Bank Tests
 // Validates integrity, coverage and structure of data/questions.js
 // Run via: node run-tests.js
 

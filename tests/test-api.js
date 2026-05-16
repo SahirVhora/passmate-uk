@@ -1,4 +1,4 @@
-// PassMate UK — API Module Tests
+// PassMate UK - API Module Tests
 // Tests: response normalisation, fallback, caching
 
 'use strict';
@@ -33,7 +33,7 @@ global.document = {
   }
 };
 
-// ── fetch shim — returns a resolved mock response ────────────
+// ── fetch shim - returns a resolved mock response ────────────
 global.fetch = null; // set per test below
 
 const { Api } = require('../assets/js/api.js');
@@ -157,14 +157,14 @@ async function runApiTests() {
     return makeOtdbResponse([SAMPLE_RESULT]);
   };
   await Api.fetchDynamicQuestions('alertness', 1);
-  await Api.fetchDynamicQuestions('alertness', 5); // different count — new request
+  await Api.fetchDynamicQuestions('alertness', 5); // different count - new request
   assert(fetchCount === 2, 'Different count parameter results in separate fetch');
 
   // ── 10. Category without OTDB mapping returns empty array ─
   sessionStorage.clear();
   global.fetch = async () => makeOtdbResponse([SAMPLE_RESULT]);
   const unmapped = await Api.fetchDynamicQuestions('attitude', 1);
-  // 'attitude' has no OTDB mapping — should return [] without calling fetch
+  // 'attitude' has no OTDB mapping - should return [] without calling fetch
   // (fetchCount increments only if mapped, but attitude is not in OTDB_CATEGORY_MAP)
   assert(Array.isArray(unmapped), 'Unmapped category returns an array');
 

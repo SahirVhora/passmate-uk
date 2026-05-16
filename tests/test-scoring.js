@@ -1,4 +1,4 @@
-// PassMate UK — Scoring & Logic Tests
+// PassMate UK - Scoring & Logic Tests
 // Tests: score calculation, pass/fail threshold, weak categories, shuffle, storage
 
 'use strict';
@@ -57,10 +57,10 @@ function runScoringTests() {
   // ── 3. Weak category identification ──────────────────────
   {
     localStorage.clear();
-    Storage.saveProgress('alertness',    10, 5);  // 50% — weak
-    Storage.saveProgress('attitude',     10, 9);  // 90% — strong
-    Storage.saveProgress('road-signs',   10, 6);  // 60% — weak
-    Storage.saveProgress('vehicle-safety', 10, 8); // 80% — strong
+    Storage.saveProgress('alertness',    10, 5);  // 50% - weak
+    Storage.saveProgress('attitude',     10, 9);  // 90% - strong
+    Storage.saveProgress('road-signs',   10, 6);  // 60% - weak
+    Storage.saveProgress('vehicle-safety', 10, 8); // 80% - strong
 
     const weak = Storage.getWeakCategories(70);
     assert(weak.includes('alertness'),   'getWeakCategories includes alertness (50%)');

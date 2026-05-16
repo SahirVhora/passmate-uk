@@ -1,4 +1,4 @@
-// PassMate UK — API Module
+// PassMate UK - API Module
 // Integrates with Open Trivia Database (opentdb.com) as supplementary questions
 // and manages the local JSON question bank
 // Falls back silently to static bank if API is unavailable
@@ -44,7 +44,7 @@ function _setCache(key, data) {
   try {
     sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
   } catch {
-    // sessionStorage full — ignore
+    // sessionStorage full - ignore
   }
 }
 
