@@ -19,7 +19,7 @@ A free, offline-capable Progressive Web App for UK Car Theory Test preparation. 
 
 ## Screenshots
 
-_Add screenshots here once deployed._
+The live site is deployed and available at: https://sahirvhora.github.io/passmate-uk/
 
 ## Project Structure
 
