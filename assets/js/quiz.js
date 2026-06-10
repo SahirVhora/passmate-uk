@@ -22,6 +22,15 @@ const CATEGORIES = [
 const MOCK_TEST_SIZE = 50;
 const PASS_THRESHOLD = 0.86; // 43/50 = 86%
 const MOCK_TIME_LIMIT_SECONDS = 57 * 60; // 57 minutes
+const HAZARD_SCENARIOS = [
+  { id: 'hazard-parked-van', title: 'Parked van near crossing', scene: '🚐  🚸  🚗', danger: 'A pedestrian may step out from behind the van.', bestWindow: [2, 5], hint: 'Scan hidden pavements and crossings early.' },
+  { id: 'hazard-school-bus', title: 'School bus at the kerb', scene: '🚌  🧒  🚙', danger: 'Children may cross from in front of the bus.', bestWindow: [1, 4], hint: 'Slow down and be ready to stop.' },
+  { id: 'hazard-cyclist-door', title: 'Cyclist beside parked cars', scene: '🚲  🚗🚗  🚘', danger: 'A car door may open into the cyclist path.', bestWindow: [2, 6], hint: 'Leave clearance before the hazard develops.' }
+];
+
+function getHazardScenarios() {
+  return shuffle(HAZARD_SCENARIOS);
+}
 
 // ── Fisher-Yates Shuffle ────────────────────────────────────────
 function shuffle(arr) {
@@ -315,6 +324,7 @@ const Quiz = {
   getMockTestQuestions,
   getWeakAreaQuestions,
   getBookmarkedQuestions,
+  getHazardScenarios,
   QuizSession,
   calcPassFail,
   getWeakestCategories,

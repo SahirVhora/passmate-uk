@@ -131,6 +131,7 @@
         case 'weak': return '📈 Weak Areas';
         case 'bookmarks': return '🔖 Bookmarks';
         case 'review': return '🔁 Review Incorrect';
+        case 'hazard': return '⚠️ Hazard Perception Mini Mode';
         default: {
           const cat = Quiz.CATEGORIES.find(c => c.slug === config.category);
           return cat ? `${cat.icon} ${cat.label}` : '📝 Practice';
@@ -141,9 +142,15 @@
     document.getElementById('session-label').textContent = modeLabel();
     document.getElementById('auto-advance-badge').classList.toggle('hidden', !settings.autoAdvance);
 
-    const questions = buildQuestions();
+    if (config.mode === 'hazard') {
+      startHazardMode();
+    }
 
-    if (!questions.length) {
+    const questions = config.mode === 'hazard' ? [] : buildQuestions();
+
+    if (config.mode === 'hazard') {
+      // Hazard mode renders its own static scenarios.
+    } else if (!questions.length) {
       document.getElementById('quiz-area').innerHTML = `
         <div style="text-align: center; padding: 60px 0;">
           <p style="font-size: 1.5rem; margin-bottom: 16px;">😕</p>
@@ -170,6 +177,50 @@
     }
 
     // ── Render Question ───────────────────────────────────────
+    function startHazardMode() {
+      const scenarios = Quiz.getHazardScenarios();
+      let idx = 0;
+      let points = 0;
+      let started = Date.now();
+      const area = document.getElementById('quiz-area');
+
+      function renderScenario() {
+        const item = scenarios[idx];
+        started = Date.now();
+        area.innerHTML = `
+          <div class="question-card" style="text-align:center;">
+            <p class="quiz-breadcrumb">Scenario ${idx + 1} of ${scenarios.length}</p>
+            <div style="font-size:4rem;letter-spacing:.35rem;margin:24px 0;" role="img" aria-label="${item.title}">${item.scene}</div>
+            <h2 class="question-text">${item.title}</h2>
+            <p class="text-muted mb-24">Tap when you spot the developing danger.</p>
+            <button class="btn primary" id="spot-danger">Spot the danger</button>
+          </div>`;
+        area.querySelector('#spot-danger').addEventListener('click', () => {
+          const seconds = Math.max(1, Math.round((Date.now() - started) / 1000));
+          const inWindow = seconds >= item.bestWindow[0] && seconds <= item.bestWindow[1];
+          const earned = inWindow ? 5 : seconds < item.bestWindow[0] ? 2 : 1;
+          points += earned;
+          area.innerHTML = `
+            <div class="explanation-panel visible"><div class="explanation-inner">
+              <div class="explanation-result ${inWindow ? 'correct' : 'incorrect'}">${earned}/5 points</div>
+              <p class="explanation-text"><strong>Danger:</strong> ${item.danger}</p>
+              <p class="explanation-text"><strong>Timing:</strong> You tapped at ${seconds}s. Best window: ${item.bestWindow[0]}-${item.bestWindow[1]}s.</p>
+              <p class="hc-rule">${item.hint}</p>
+              <button class="btn-next primary" id="hazard-next">${idx === scenarios.length - 1 ? 'See score' : 'Next scenario →'}</button>
+            </div></div>`;
+          area.querySelector('#hazard-next').addEventListener('click', () => {
+            idx++;
+            if (idx >= scenarios.length) {
+              area.innerHTML = `<div class="question-card" style="text-align:center;"><h2>Hazard score: ${points}/${scenarios.length * 5}</h2><p class="text-muted mb-24">Aim to spot developing hazards early, not before they exist.</p><a class="btn primary" href="quiz.html?mode=hazard">Try again</a> <a class="btn secondary" href="../index.html">Home</a></div>`;
+            } else {
+              renderScenario();
+            }
+          });
+        });
+      }
+      renderScenario();
+    }
+
     function renderCurrentQuestion() {
       if (session.isComplete) { finishSession(); return; }
       const area = document.getElementById('quiz-area');
