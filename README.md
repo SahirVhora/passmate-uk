@@ -4,7 +4,7 @@ A free, offline-capable Progressive Web App for UK Car Theory Test preparation. 
 
 ## Features
 
-- **304 questions** across all 15 official DVSA categories (20–22 per topic)
+- **304 questions** across all 15 official DVSA categories (20-22 per topic)
 - **Mock test mode** - 50 random questions, 57-minute timer, 86% pass mark (mirrors real test)
 - **Category drill** - focus on specific topics
 - **Weak areas mode** - automatically targets your lowest-scoring categories
@@ -141,3 +141,13 @@ MIT - free to use, modify, and distribute.
 ## Next Learning Enhancement
 
 See [docs/spaced-repetition.md](docs/spaced-repetition.md) for the proposed local spaced-repetition queue. It builds on the existing weak-area and bookmark logic without changing the mock-test behaviour.
+
+---
+
+## More free learning tools
+
+- [StarLearn](https://sahirvhora.github.io/starlearn/) - Free UK primary learning platform - Years 4-6, 494 topics
+- [Year 4 Prep](https://sahirvhora.github.io/year4-prep/) - Free Year 4 SATs practice papers - 36 PDFs, updated weekly
+- [Worksheet Generator](https://sahirvhora.github.io/worksheet-generator/) - Printable SATs-style worksheets - KS1/KS2 Maths, Reading, SPaG
+- [11+ Prep](https://sahirvhora.github.io/11plus-prep/) - Free 11+ exam practice - region-specific papers
+- [Nobel Explorer](https://sahirvhora.github.io/nobel-explorer/) - Explore 1,026 Nobel laureates - search, timeline, map, quiz
