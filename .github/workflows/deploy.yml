@@ -51,11 +51,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Build curated Pages artifact
+        run: ./scripts/build-pages-artifact.sh
+
+      - name: Check repository-only paths are absent
+        run: |
+          set -euo pipefail
+          for path in tests docs src source scripts .github run-tests.js README.md CONTRIBUTING.md SECURITY.md; do
+            test ! -e "_site/$path" || { echo "Unexpected public path: $path"; exit 1; }
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

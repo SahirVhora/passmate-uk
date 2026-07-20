@@ -10,3 +10,4 @@ __pycache__/
 .claude/settings.local.json
 .under-anything/
 .DS_Store
+_site/
