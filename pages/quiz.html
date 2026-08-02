@@ -25,6 +25,22 @@
       color: var(--yellow);
       border-radius: 100px;
     }
+    :root { --nav-height: 56px; }
+    .sticky-progress {
+      position: sticky;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--border);
+      z-index: 90;
+    }
+    .sticky-progress > div {
+      height: 100%;
+      background: var(--yellow);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -41,6 +57,8 @@
       </div>
     </div>
   </nav>
+
+  <div class="sticky-progress" aria-hidden="true" data-testid="sticky-progress"><div id="sticky-progress-fill" data-testid="sticky-progress-fill"></div></div>
 
   <main>
     <div class="container quiz-layout">

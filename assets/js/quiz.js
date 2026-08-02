@@ -222,6 +222,9 @@ function renderQuestion(session, container) {
   const q = session.currentQuestion;
   const { current, total, pct } = session.progress;
 
+  const stickyFill = document.getElementById('sticky-progress-fill');
+  if (stickyFill) stickyFill.style.width = `${pct}%`;
+
   const catInfo = CATEGORIES.find(c => c.slug === q.category) || { label: q.category, icon: '📝' };
 
   container.innerHTML = `
